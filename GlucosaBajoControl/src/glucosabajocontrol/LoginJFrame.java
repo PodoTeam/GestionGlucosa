@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class LoginJFrame extends javax.swing.JFrame {
 
+    static String user;
+
     /**
      * Creates new form LoginJFrame
      */

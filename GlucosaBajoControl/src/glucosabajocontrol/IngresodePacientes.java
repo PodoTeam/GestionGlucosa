@@ -5,16 +5,19 @@
  */
 package glucosabajocontrol;
 
+
+import java.sql.*;
 /**
  *
  * @author Martin Guerra
  */
-public class IngresoPaciente extends javax.swing.JFrame {
+public class IngresodePacientes extends javax.swing.JDialog {
 
     /**
-     * Creates new form IngresoPaciente
+     * Creates new form IngresodePacientes
      */
-    public IngresoPaciente() {
+    public IngresodePacientes(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -28,7 +31,6 @@ public class IngresoPaciente extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -45,22 +47,17 @@ public class IngresoPaciente extends javax.swing.JFrame {
         txt_tiposanguineo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_tipodiabetes = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txt_tiposanguineo1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel_Wallpaper = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel1.setText("Ingreso de Pacientes");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        jButton1.setText("Ingresar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel2.setText("ID:");
@@ -125,6 +122,22 @@ public class IngresoPaciente extends javax.swing.JFrame {
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         getContentPane().add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 210, -1));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setText("TipoSanguineo:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        txt_tiposanguineo1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_tiposanguineo1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        getContentPane().add(txt_tiposanguineo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 210, -1));
+
+        jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, -1, -1));
         getContentPane().add(jLabel_Wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 350));
 
         pack();
@@ -151,20 +164,27 @@ public class IngresoPaciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IngresoPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngresodePacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IngresoPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngresodePacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IngresoPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngresodePacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IngresoPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(IngresodePacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IngresoPaciente().setVisible(true);
+                IngresodePacientes dialog = new IngresodePacientes(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -172,6 +192,7 @@ public class IngresoPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -189,5 +210,6 @@ public class IngresoPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField txt_peso;
     private javax.swing.JTextField txt_tipodiabetes;
     private javax.swing.JTextField txt_tiposanguineo;
+    private javax.swing.JTextField txt_tiposanguineo1;
     // End of variables declaration//GEN-END:variables
 }
