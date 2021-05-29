@@ -40,6 +40,6 @@ public class ReadProperties {
     
     public String obtenerURL()throws IOException
     {
-        return obtenerProperties("URL"+raiz);
+        return obtenerProperties("URL")+raiz+"\\GlucosaBajoControlBD.accdb";
     }
 }

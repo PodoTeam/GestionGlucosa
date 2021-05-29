@@ -30,7 +30,7 @@ public class MedicamentoMD {
         final String cadena = "insert into MEDICAMENTO (NOM_MEDI, DOSIS_MEDI, INDICA_MEDI, ESTADO_MEDI) values (?,?,?,?)";
 
         try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             con = DriverManager.getConnection(rp.obtenerURL());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,7 +55,7 @@ public class MedicamentoMD {
         final String cadena = "SELECT * FROM MEDICAMENTO";
 
         try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             con = DriverManager.getConnection(rp.obtenerURL());
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
@@ -66,39 +66,37 @@ public class MedicamentoMD {
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
-            String nom = resultSet.getString(0);
-            float dosis = resultSet.getInt(1);
-            String indica = resultSet.getString(2);
-            boolean esta = resultSet.getBoolean(3);
+            String nom = resultSet.getString(1);
+            float dosis = resultSet.getInt(2);
+            String indica = resultSet.getString(3);
+            boolean esta = resultSet.getBoolean(4);
 
             medicamentos.add(new MedicamentoDP(nom, dosis, indica, esta));
-        
-        );
-
         }
         preparedStatement.close();
         return medicamentos;
     }
 
-    public ArrayList<GrupoDP> consultarGrupo(String idTrabajador) throws IOException, SQLException {
-        ArrayList<GrupoDP> consulta = new ArrayList<>();
+    public boolean modificarMedicamento(String NOM_MEDI, float DOSIS_MEDI, String INDICA_MEDI, boolean ESTADO_MEDI) throws IOException, SQLException {
 
-        final String cadena = "SELECT * FROM GRUPO_TRABAJADOR WHERE ID_TRABAJADOR=?";
+        final String cadena = "UPDATE MEDICAMENTO SET DOSIS_MEDI = ?, INDICA_MEDI = ?, ESTADO_MEDI = ? WHERE NOM_MEDI = ?";
 
-        DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver());
-        con = DriverManager.getConnection(rp.obtenerURL());
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            con = DriverManager.getConnection(rp.obtenerURL());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, idTrabajador);
+        preparedStatement.setString(4, NOM_MEDI);
+        preparedStatement.setFloat(1, DOSIS_MEDI);
+        preparedStatement.setString(2, INDICA_MEDI);
+        preparedStatement.setBoolean(3, ESTADO_MEDI);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        while (resultSet.next()) {
-            GrupoDP aux = new GrupoDP();
-            aux.consultaEspecifica(resultSet.getString("COD_GRUPO"));
-            consulta.add(aux);
-        }
+        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
-        return consulta;
+        return resultado;
+
     }
 }
