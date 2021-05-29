@@ -5,8 +5,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
 
-import java.sql.*;
 /**
  *
  * @author Martin Guerra
@@ -33,7 +33,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_id = new javax.swing.JTextField();
+        txt_cedula = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -48,7 +48,8 @@ public class IngresodePacientes extends javax.swing.JDialog {
         txt_tiposanguineo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_tipodiabetes = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_correo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -60,12 +61,12 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel2.setText("ID:");
+        jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
-        txt_id.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_id.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txt_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
+        txt_cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_cedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel3.setText("Nombre:");
@@ -93,39 +94,43 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel6.setText("Altura:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
         txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_altura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
+        jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel7.setText("Peso:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
         txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_peso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
+        jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel8.setText("TipoSanguineo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
         txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
+        jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel9.setText("TipoDiabetes:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
+        jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 210, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel10.setText("TipoSanguineo:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel11.setText("Correo:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+
+        txt_correo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +138,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,6 +156,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -198,7 +204,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -210,11 +216,37 @@ public class IngresodePacientes extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_altura;
     private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_cedula;
+    private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_edad;
-    private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_peso;
     private javax.swing.JTextField txt_tipodiabetes;
     private javax.swing.JTextField txt_tiposanguineo;
     // End of variables declaration//GEN-END:variables
+    public void Verificacion()
+    {
+        String cedula = txt_cedula.getText();
+        String nombre = txt_nombre.getText();
+        String apellido = txt_apellido.getText();
+        int edad = Integer.parseInt(txt_edad.getText());
+        String correo = txt_correo.getText();
+        float altura = Float.parseFloat(txt_altura.getText());
+        float peso = Float.parseFloat(txt_peso.getText());
+        String tipoSanguineo = txt_tiposanguineo.getText();
+        int tipoDiabetes = Integer.parseInt(txt_tipodiabetes.getText());
+        if("".equals(cedula)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Cédula");
+        }
+        else if("".equals(nombre)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Nombre");
+        }
+        else if("".equals(apellido)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Apellido");
+        }
+        else if("".equals(edad)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Edad");
+        }
+        
+    }
 }
