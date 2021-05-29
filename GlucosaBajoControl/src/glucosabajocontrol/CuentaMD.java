@@ -17,7 +17,7 @@ import java.sql.Date;
  *
  * @author bryan
  */
-public class Hba1cMD {
+public class CuentaMD {
 
     ReadProperties rp = new ReadProperties();
     Connection con;
@@ -26,9 +26,9 @@ public class Hba1cMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
+    public boolean insertarCuenta(String USER_CUEN, String PASS_CUEN) throws IOException, SQLException {
 
-        final String cadena = "insert into HBA1C (COD_HB, FECHA_HB, CAL_HB) values (?,?,?)";
+        final String cadena = "insert into CUENTA (USER_CUEN, PASS_CUEN) values (?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -38,9 +38,8 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
-        preparedStatement.setDate(2, FECHA_HB);
-        preparedStatement.setFloat(3, CAL_HB);
+        preparedStatement.setString(1, USER_CUEN);
+        preparedStatement.setString(2, PASS_CUEN);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
@@ -48,11 +47,9 @@ public class Hba1cMD {
 
     }
 
-    public ArrayList<Hba1cDP> consultarHba1c() throws IOException, SQLException {
+    public String consultarCuenta(String ID_PAC) throws IOException, SQLException {
 
-        ArrayList<Hba1cDP> hba1c = new ArrayList<>();
-
-        final String cadena = "SELECT * FROM HBA1C";
+        final String cadena = "SELECT * FROM PACIENTE WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -62,23 +59,20 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, ID_PAC);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        while (resultSet.next()) {
-            String codigo = resultSet.getString(2);
-            Date fecha = resultSet.getDate(1);
-            float valor = resultSet.getInt(3);
+        String correo = resultSet.getString(1);
 
-            hba1c.add(new Hba1cDP(codigo, fecha, valor));
-        }
         preparedStatement.close();
-        return hba1c;
+
+        return correo;
     }
 
-    public boolean modificarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
+    public boolean modificarCuenta(String ID_PAC, String PASS_CUEN) throws IOException, SQLException {
 
-        final String cadena = "UPDATE HBA1C SET FECHA_HB = ?, CAL_HB = ? WHERE COD_HB = ?";
+        final String cadena = "UPDATE CUENTA SET PASS_CUEN = ? WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -88,18 +82,17 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(3, COD_HB);
-        preparedStatement.setDate(1, FECHA_HB);
-        preparedStatement.setFloat(2, CAL_HB);
+        preparedStatement.setString(2, ID_PAC);
+        preparedStatement.setString(1, PASS_CUEN);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
     }
 
-    public boolean eliminarHba1c(String COD_HB) throws IOException, SQLException {
+    public boolean eliminarCuenta(String ID_PAC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM HBA1C WHERE COD_HB = ?";
+        final String cadena = "DELETE * FROM CUENTA WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -109,7 +102,7 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
+        preparedStatement.setString(1, ID_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

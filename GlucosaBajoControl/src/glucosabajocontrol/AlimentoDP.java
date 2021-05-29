@@ -7,51 +7,56 @@ package glucosabajocontrol;
 
 /**
  *
- * @author W10USER
+ * @author bryan
  */
-public class RecomendacionAlimenticiaDP {
+public class AlimentoDP {
+
     String nombreAlimento;
     float grasaAlimento;
     float azucarAlimento;
-    PacienteDP Paciente;
+    PacienteDP Paciente;//revisar las inicializaciones de los objetos
     GlucosaDP Glucosa;
-    public RecomendacionAlimenticiaDP(String nombreAlimento,
-    float grasaAlimento,
-    float azucarAlimento,
-    PacienteDP Paciente,
-    GlucosaDP Glucosa)
-    {
+
+    public AlimentoDP(String nombreAlimento, float grasaAlimento, float azucarAlimento) {
         this.nombreAlimento = nombreAlimento;
         this.grasaAlimento = grasaAlimento;
         this.azucarAlimento = azucarAlimento;
-        this.Paciente =    Paciente;
-        this.Glucosa  =  Glucosa;
+    }
+     public AlimentoDP(String nombreAlimento, float grasaAlimento, float azucarAlimento, PacienteDP Paciente, GlucosaDP Glucosa) {
+        this.nombreAlimento = nombreAlimento;
+        this.grasaAlimento = grasaAlimento;
+        this.azucarAlimento = azucarAlimento;
     }
     public float getPeso() {
         return Paciente.getPeso();
     }
+
     public float getGlucosa() {
         return Glucosa.getConcentracionAzucar();
-    }
-    public void RecomendacionAlimenticia()
-    {
-        
-    }
-    public void Guardar()
-    {
-        
     }
 
     public String getNombreAlimento() {
         return nombreAlimento;
     }
 
+    public void setNombreAlimento(String NombreAlimento) {
+        this.nombreAlimento = nombreAlimento;
+    }
+
     public float getGrasaAlimento() {
         return grasaAlimento;
     }
 
+    public void setGrasaAlimento(float GrasaAlimento) {
+        this.grasaAlimento = grasaAlimento;
+    }
+
     public float getAzucarAlimento() {
         return azucarAlimento;
+    }
+
+    public void setAzucarAlimento(float azucarAlimento) {
+        this.azucarAlimento = azucarAlimento;
     }
 
 }
