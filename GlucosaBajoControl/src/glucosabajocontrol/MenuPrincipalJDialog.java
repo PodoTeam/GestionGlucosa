@@ -94,6 +94,11 @@ public class MenuPrincipalJDialog extends javax.swing.JDialog {
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Glucosa");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -109,6 +114,7 @@ public class MenuPrincipalJDialog extends javax.swing.JDialog {
         });
         jMenu5.add(jMenuItem5);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem3.setText("Patrones de Glucosa");
         jMenu5.add(jMenuItem3);
 
@@ -120,6 +126,11 @@ public class MenuPrincipalJDialog extends javax.swing.JDialog {
         jMenu7.add(jMenuItem6);
 
         jMenuItem7.setText("Medicamentos");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem7);
 
         jMenuItem8.setText("Glucosa");
@@ -178,6 +189,19 @@ public class MenuPrincipalJDialog extends javax.swing.JDialog {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        IngresoGlucosaJInternalFrame ig = new IngresoGlucosaJInternalFrame();
+        jDesktopPane2.add(ig);
+        ig.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        MedicamentosModificacionJInternalFrame mm = new MedicamentosModificacionJInternalFrame();
+        jDesktopPane2.add(mm);
+        mm.setVisible(true);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments

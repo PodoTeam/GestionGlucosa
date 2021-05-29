@@ -5,6 +5,9 @@
  */
 package glucosabajocontrol;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author W10USER
@@ -61,10 +64,20 @@ public class LoginJFrame extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
 
         jTextUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextUsuarioActionPerformed(evt);
+            }
+        });
+        jTextUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextUsuarioKeyPressed(evt);
             }
         });
 
@@ -75,6 +88,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -160,14 +178,11 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Lleva a una nueva ventana
-        String usuario  = jTextUsuario.getText();
-        String contrasena = jPasswordField1.getText();
-        System.out.println(contrasena);
-        
+        Ingreso();
+       
         // Verificacion
         
-        MenuPrincipalJDialog MP = new MenuPrincipalJDialog(this, true);
-        MP.setVisible(true);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
@@ -178,6 +193,22 @@ public class LoginJFrame extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+ 
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+       
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            Ingreso();
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {Ingreso(); }
+    }//GEN-LAST:event_jTextUsuarioKeyPressed
 
     /**
      * @param args the command line arguments
@@ -226,4 +257,28 @@ public class LoginJFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextUsuario;
     // End of variables declaration//GEN-END:variables
+    public void Ingreso()
+    {
+            String usuario  = jTextUsuario.getText();
+            String contrasena = jPasswordField1.getText();
+            if("".equals(usuario) && "".equals(contrasena)){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
+            }
+            else if("".equals(usuario))
+            {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese su usuario");
+            }
+            else if("".equals(contrasena))
+            {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
+            }
+            else{
+                MenuPrincipalJDialog MP = new MenuPrincipalJDialog(this, true);
+                MP.setVisible(true);
+            }
+    }
+
+
+
 }
+
