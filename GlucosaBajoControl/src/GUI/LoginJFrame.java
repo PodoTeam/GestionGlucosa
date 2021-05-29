@@ -5,7 +5,12 @@
  */
 package GUI;
 
+import glucosabajocontrol.CuentaDP;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -185,8 +190,31 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Lleva a una nueva ventana
-        Ingreso();
-       
+        String datos[];
+        datos = Ingreso();
+        if(!"-1".equals(datos[0]) && !"-1".equals(datos[1]))
+        {
+            CuentaDP cue =new CuentaDP(datos[0],datos[1]);
+            try {
+                if(!cue.verificar())
+                {
+                    JOptionPane.showMessageDialog(null, "Usuario no registrado");
+                }
+                else
+                {
+                    MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
+                    mP.setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+        }
+        
         // Verificacion
         
        
@@ -208,13 +236,20 @@ public class LoginJFrame extends javax.swing.JFrame {
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-            Ingreso();
+        {  
+            Ingreso();  
+            
+        }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
         // TODO add your handling code here:
+      
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
-        {Ingreso(); }
+        {
+            Ingreso(); 
+            //consultarCuenta
+        }
     }//GEN-LAST:event_jTextUsuarioKeyPressed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -270,8 +305,9 @@ public class LoginJFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextUsuario;
     // End of variables declaration//GEN-END:variables
-    public void Ingreso()
+    public String[] Ingreso()
     {
+        String datos[] = new  String[2];
             String usuario  = jTextUsuario.getText();
             String contrasena = jPasswordField1.getText();
             if("".equals(usuario) && "".equals(contrasena)){
@@ -280,17 +316,18 @@ public class LoginJFrame extends javax.swing.JFrame {
             else if("".equals(usuario))
             {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese su usuario");
+                datos[0]= "-1";
             }
             else if("".equals(contrasena))
             {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
-            }
+                datos[1] = "-1";
+            }                
             else{
-                MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
-                mP.setVisible(true);
-                this.setVisible(false);
+                datos[0]= usuario;
+                datos[1] = contrasena;
             }
-            
+         return datos; 
     }
 
 

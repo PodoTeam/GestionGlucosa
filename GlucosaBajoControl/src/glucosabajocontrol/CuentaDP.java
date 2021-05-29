@@ -5,6 +5,9 @@
  */
 package glucosabajocontrol;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author Martin Guerra
@@ -32,8 +35,11 @@ public class CuentaDP {
     public String getClave(){
         return clave;
     }
-    public void verificar(){
+    public boolean verificar() throws IOException, SQLException{
         
+        CuentaMD cuemd = new CuentaMD();
+        boolean result  = cuemd.consultarCuenta(clave,usuario);
+        return  result;
     }
     public void grabar(){
         

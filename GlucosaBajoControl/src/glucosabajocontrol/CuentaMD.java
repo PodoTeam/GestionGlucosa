@@ -47,10 +47,10 @@ public class CuentaMD {
 
     }
 
-    public String consultarCuenta(String ID_PAC) throws IOException, SQLException {
+    public boolean consultarCuenta(String pas_cue,String id_cue) throws IOException, SQLException {
 
-        final String cadena = "SELECT * FROM PACIENTE WHERE ID_PAC = ?";
-
+        final String cadena = "SELECT * FROM CUENTA WHERE ID_CUE = ? AND PAS_CUE = ?";
+        boolean result = false; 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             con = DriverManager.getConnection(rp.obtenerURL());
@@ -59,15 +59,16 @@ public class CuentaMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, ID_PAC);
+        preparedStatement.setString(1,  id_cue);
+        preparedStatement.setString(2, pas_cue);
+        this.result = preparedStatement.executeQuery();
 
-        ResultSet resultSet = preparedStatement.executeQuery();
+        //String correo = resultSet.getString(1);
+        //preparedStatement.close();
+        if(this.result.next())
+        {result = true;}
 
-        String correo = resultSet.getString(1);
-
-        preparedStatement.close();
-
-        return correo;
+        return result;
     }
 
     public boolean modificarCuenta(String ID_PAC, String PASS_CUEN) throws IOException, SQLException {

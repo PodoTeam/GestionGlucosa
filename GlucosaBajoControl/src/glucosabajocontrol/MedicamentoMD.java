@@ -24,6 +24,7 @@ public class MedicamentoMD {
     ResultSet result;
     String cadena;
     String raiz = System.getProperty("user.dir");
+    
 
     public boolean insertarMedicamento(String NOM_MEDI, float DOSIS_MEDI, String INDICA_MEDI, boolean ESTADO_MEDI) throws IOException, SQLException {
 
