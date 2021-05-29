@@ -8,12 +8,12 @@ public class MedicamentoDP {
     String indicaciones;
     Boolean estado; 
     
-    public MedicamentoDP(String nombre, float dosis, String indicaciones)
+    public MedicamentoDP(String nombre, float dosis, String indicaciones, Boolean estado)
     {
         this.nombre = nombre;
         this.dosis =dosis;
         this.indicaciones =indicaciones;
-        this.estado =true;
+        this.estado = estado;
     }
     public void setMedicamento(String nombre) {
         this.nombre = nombre;

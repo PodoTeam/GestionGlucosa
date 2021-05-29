@@ -15,7 +15,9 @@ import java.util.Properties;
  * @author bryan
  */
 public class ReadProperties {
-     public String obtenerProperties(String key) throws IOException {
+      String raiz = System.getProperty("user.dir");
+    
+     public  String obtenerProperties(String key) throws IOException {
 
         Properties property = new Properties();
         String propFileName = "glucosabajocontrol/config.properties";
@@ -38,6 +40,6 @@ public class ReadProperties {
     
     public String obtenerURL()throws IOException
     {
-        return obtenerProperties("URL");
+        return obtenerProperties("URL"+raiz);
     }
 }
