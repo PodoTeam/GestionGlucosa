@@ -1,5 +1,6 @@
 package glucosabajocontrol;
 
+import GUI.LoginJFrame;
 import java.io.IOException;
 import java.sql.SQLException;
 

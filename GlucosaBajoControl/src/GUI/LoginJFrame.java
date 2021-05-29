@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package glucosabajocontrol;
+package GUI;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -275,8 +275,9 @@ public class LoginJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
             }
             else{
-                MenuPrincipalJDialog MP = new MenuPrincipalJDialog(this, true);
-                MP.setVisible(true);
+                MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
+                mP.setVisible(true);
+                this.setVisible(false);
             }
     }
 
