@@ -4,24 +4,20 @@
  * and open the template in the editor.
  */
 package glucosabajocontrol;
-import java.time.LocalDateTime;
-// import java.sql.Date;
-
-
-
+import java.sql.Date;
 
 /**
  *
  * @author W10USER
  */
 public class GlucosaDP {
-    LocalDateTime fechaGlucosa;
+    Date fechaGlucosa;
     String momentoMedicion;
     int concentracionAzucar;
     String comentario;
-    HBA1C hba1c;
-    public GlucosaDP(LocalDateTime fechaGlucosa,String momentoMedicion,
-            int concentracionAzucar, String comentario, HBA1C hba1ic) 
+    Hba1cDP hba1c;
+    public GlucosaDP(Date fechaGlucosa,String momentoMedicion,
+            int concentracionAzucar, String comentario, Hba1cDP hba1ic) 
     {
         this.fechaGlucosa = fechaGlucosa;
         this.momentoMedicion = momentoMedicion;
@@ -29,8 +25,16 @@ public class GlucosaDP {
         this.comentario = comentario;
         this.hba1c = hba1ic;
     }
+     public GlucosaDP(Date fechaGlucosa,String momentoMedicion,
+            int concentracionAzucar, String comentario) 
+    {
+        this.fechaGlucosa = fechaGlucosa;
+        this.momentoMedicion = momentoMedicion;
+        this.concentracionAzucar = concentracionAzucar;
+        this.comentario = comentario;
+    }
 
-    public void setFechaGlucosa(LocalDateTime fechaGlucosa) {
+    public void setFechaGlucosa(Date fechaGlucosa) {
         this.fechaGlucosa = fechaGlucosa;
     }
 
@@ -46,11 +50,11 @@ public class GlucosaDP {
         this.comentario = comentario;
     }
 
-    public void setHba1c(HBA1C hba1c) {
+    public void setHba1c(Hba1cDP hba1c) {
         this.hba1c = hba1c;
     }
 
-    public LocalDateTime getFechaGlucosa() {
+    public Date getFechaGlucosa() {
         return fechaGlucosa;
     }
 
@@ -66,7 +70,7 @@ public class GlucosaDP {
         return comentario;
     }
 
-    public HBA1C getHba1c() {
+    public Hba1cDP getHba1c() {
         return hba1c;
     }
     public void guardarDP(){
