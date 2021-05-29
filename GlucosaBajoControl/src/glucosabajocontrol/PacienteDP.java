@@ -15,24 +15,24 @@ public class PacienteDP {
     String nombre;
     String apellido;
     int edad;
-    String correo;
     float altura;
     float peso;
     String tipoSanguineo;
     int tipoDiabetes;
+    String clave;
     CuentaDP Cuenta;
     
-    public PacienteDP(String cedula, String nombre, String apellido, int edad, String correo, float altura, float peso, String tipoSanguineo, int tipoDiabetes)
+    public PacienteDP(String cedula, String nombre, String apellido, int edad, float altura, float peso, String tipoSanguineo, int tipoDiabetes, String clave)
     {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.correo = correo;
         this.altura = altura;
         this.peso = peso;
         this.tipoSanguineo = tipoSanguineo;
         this.tipoDiabetes = tipoDiabetes;
+        this.clave = clave;
     }
     public void setId(String cedula){
         this.cedula = cedula;
@@ -46,9 +46,6 @@ public class PacienteDP {
     public void setEdad(int edad){
         this.edad = edad;
     }
-    public void setCorreo(String correo){
-        this.correo = correo;
-    }
     public void setAltura(float altura){
         this.altura = altura;
     }
@@ -60,6 +57,9 @@ public class PacienteDP {
     }
     public void setTipoDiabetes(int tipoDiabetes){
         this.tipoDiabetes = tipoDiabetes;
+    }
+    public void setClave(String clave){
+        this.clave = clave;
     }
     
     public String getCedula(){
@@ -74,9 +74,6 @@ public class PacienteDP {
     public int getEdad(){
         return edad;
     }
-    public String getCorreo(){
-        return correo;
-    }
     public float getAltura(){
         return altura;
     }
@@ -88,6 +85,9 @@ public class PacienteDP {
     }
     public int getTipoDiabetes(){
         return tipoDiabetes;
+    }
+    public String getClave(){
+        return clave;
     }
     public void consultarPaciente(){
         
