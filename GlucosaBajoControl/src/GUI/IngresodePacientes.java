@@ -72,7 +72,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         txt_cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_cedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_cedula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -81,7 +81,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
         txt_nombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_nombre.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_nombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -90,7 +90,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
         txt_apellido.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -99,7 +99,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         txt_edad.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_edad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_edad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -108,7 +108,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
         txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_altura.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_altura.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -117,7 +117,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
         txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_peso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_peso.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -126,7 +126,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
         txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -135,7 +135,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -144,7 +144,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
         txt_correo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_correo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
@@ -165,7 +165,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -173,7 +173,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        Verificacion();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -246,14 +246,17 @@ public class IngresodePacientes extends javax.swing.JDialog {
         String cedula = txt_cedula.getText();
         String nombre = txt_nombre.getText();
         String apellido = txt_apellido.getText();
-        int edad = Integer.parseInt(txt_edad.getText());
+        String edad = txt_edad.getText();
         String correo = txt_correo.getText();
-        float altura = Float.parseFloat(txt_altura.getText());
-        float peso = Float.parseFloat(txt_peso.getText());
+        String altura = txt_altura.getText();
+        String peso = txt_peso.getText();
         String tipoSanguineo = txt_tiposanguineo.getText();
-        int tipoDiabetes = Integer.parseInt(txt_tipodiabetes.getText());
-        
-        if("".equals(cedula)){
+        String tipoDiabetes =txt_tipodiabetes.getText();
+        if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(correo) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes))
+        {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
+        }
+        else if("".equals(cedula)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Cédula");
         }
         else if("".equals(nombre)){
@@ -280,9 +283,12 @@ public class IngresodePacientes extends javax.swing.JDialog {
         else if("".equals(tipoDiabetes)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Tipo de diabetes");
         }
-        else if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(correo) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes)){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
+        else
+        {
+            int edad2 = Integer.parseInt(txt_edad.getText());
+            float altura2 = Float.parseFloat(txt_altura.getText());
+            float peso2 = Float.parseFloat(txt_peso.getText());
+            int tipoDiabetes2 = Integer.parseInt(txt_tipodiabetes.getText());
         }
-       
     }
 }
