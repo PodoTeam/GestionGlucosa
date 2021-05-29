@@ -7,6 +7,7 @@ public class GlucosaBajoControl {
 
     public static void main(String[] args) throws IOException, SQLException {
         
+<<<<<<< HEAD
         LoginJFrame login = new LoginJFrame();
         login.setVisible(true);
         //MedicamentoMD medicamentoMD = new MedicamentoMD();
@@ -14,6 +15,8 @@ public class GlucosaBajoControl {
        // System.out.println(medicamentoMD.consultarMedicamento().get(0).getIndicaciones());
         //medicamentoMD.modificarMedicamento("aspirina", 100, "20 min antes del almuerzo", true);
         //System.out.println(medicamentoMD.consultarMedicamento().get(0).getIndicaciones());
+
+=======
 
     }
 
