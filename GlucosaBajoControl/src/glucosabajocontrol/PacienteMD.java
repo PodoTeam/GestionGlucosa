@@ -17,7 +17,7 @@ import java.sql.Date;
  *
  * @author bryan
  */
-public class Hba1cMD {
+public class PacienteMD {
 
     ReadProperties rp = new ReadProperties();
     Connection con;
@@ -26,9 +26,9 @@ public class Hba1cMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
+    public boolean insertarPaciente(String ID_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
 
-        final String cadena = "insert into HBA1C (COD_HB, FECHA_HB, CAL_HB) values (?,?,?)";
+        final String cadena = "insert into PACIENTE (ID_PAC, NOM_PAC, APEL_PAC, EDAD_PAC, ALTURA_PAC, PESO_PAC, TIPOSAN_PAC, TIPODIAB_PAC) values (?,?,?,?,?,?,?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -38,9 +38,14 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
-        preparedStatement.setDate(2, FECHA_HB);
-        preparedStatement.setFloat(3, CAL_HB);
+        preparedStatement.setString(1, ID_PAC);
+        preparedStatement.setString(2, NOM_PAC);
+        preparedStatement.setString(3, APEL_PAC);
+        preparedStatement.setInt(4, EDAD_PAC);
+        preparedStatement.setFloat(5, ALTURA_PAC);
+        preparedStatement.setFloat(6, PESO_PAC);
+        preparedStatement.setString(7, TIPOSAN_PAC);
+        preparedStatement.setInt(8, TIPODIAB_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
@@ -48,11 +53,9 @@ public class Hba1cMD {
 
     }
 
-    public ArrayList<Hba1cDP> consultarHba1c() throws IOException, SQLException {
+    public PacienteDP consultarPaciente(String ID_PAC) throws IOException, SQLException {
 
-        ArrayList<Hba1cDP> hba1c = new ArrayList<>();
-
-        final String cadena = "SELECT * FROM HBA1C";
+        final String cadena = "SELECT * FROM PACIENTE WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -62,23 +65,26 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, ID_PAC);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        while (resultSet.next()) {
-            String codigo = resultSet.getString(2);
-            Date fecha = resultSet.getDate(1);
-            float valor = resultSet.getInt(3);
+        String nom = resultSet.getString(1);
+        String apel = resultSet.getString(2);
+        int edad = resultSet.getInt(3);
+        float altura = resultSet.getFloat(4);
+        float peso = resultSet.getFloat(5);
+        String tipoSan = resultSet.getString(6);
+        int tipoDiab = resultSet.getInt(7);
 
-            hba1c.add(new Hba1cDP(codigo, fecha, valor));
-        }
         preparedStatement.close();
-        return hba1c;
+
+        return new PacienteDP(ID_PAC, nom, apel, edad, altura, peso, tipoSan, tipoDiab);
     }
 
-    public boolean modificarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
+    public boolean modificarPaciente(String ID_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
 
-        final String cadena = "UPDATE HBA1C SET FECHA_HB = ?, CAL_HB = ? WHERE COD_HB = ?";
+        final String cadena = "UPDATE PACIENTE SET NOM_PAC = ?, APEL_PAC = ?, EDAD_PAC = ?, ALTURA_PAC = ?, PESO_PAC = ?, TIPOSAN_PAC = ?, TIPODIAB_PAC = ? WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -88,18 +94,23 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(3, COD_HB);
-        preparedStatement.setDate(1, FECHA_HB);
-        preparedStatement.setFloat(2, CAL_HB);
+        preparedStatement.setString(8, ID_PAC);
+        preparedStatement.setString(1, NOM_PAC);
+        preparedStatement.setString(2, APEL_PAC);
+        preparedStatement.setInt(3, EDAD_PAC);
+        preparedStatement.setFloat(4, ALTURA_PAC);
+        preparedStatement.setFloat(5, PESO_PAC);
+        preparedStatement.setString(6, TIPOSAN_PAC);
+        preparedStatement.setInt(7, TIPODIAB_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
     }
 
-    public boolean eliminarHba1c(String COD_HB) throws IOException, SQLException {
+    public boolean eliminarPaciente(String ID_PAC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM HBA1C WHERE COD_HB = ?";
+        final String cadena = "DELETE FROM PACIENTE WHERE COD_HB = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -109,7 +120,7 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
+        preparedStatement.setString(1, ID_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

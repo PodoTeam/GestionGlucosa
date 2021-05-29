@@ -17,7 +17,7 @@ import java.sql.Date;
  *
  * @author bryan
  */
-public class Hba1cMD {
+public class RecoAlimenticiaMD {
 
     ReadProperties rp = new ReadProperties();
     Connection con;
@@ -26,9 +26,9 @@ public class Hba1cMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
+    public boolean insertarRecomendacion(String ID_PAC, String NOM_ALIM, Date FECHA_REC) throws IOException, SQLException {
 
-        final String cadena = "insert into HBA1C (COD_HB, FECHA_HB, CAL_HB) values (?,?,?)";
+        final String cadena = "insert into ALIMENTOS_POR_PACIENTE (ID_PAC, NOM_ALIM, FECHA_REC) values (?,?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -38,9 +38,9 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
-        preparedStatement.setDate(2, FECHA_HB);
-        preparedStatement.setFloat(3, CAL_HB);
+        preparedStatement.setString(1, ID_PAC);
+        preparedStatement.setString(2, NOM_ALIM);
+        preparedStatement.setDate(3, FECHA_REC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
@@ -48,11 +48,11 @@ public class Hba1cMD {
 
     }
 
-    public ArrayList<Hba1cDP> consultarHba1c() throws IOException, SQLException {
+    public ArrayList<String> consultarRecomendacion(Date FECHA_REC) throws IOException, SQLException {
 
-        ArrayList<Hba1cDP> hba1c = new ArrayList<>();
-
-        final String cadena = "SELECT * FROM HBA1C";
+        ArrayList<String> resultado = new ArrayList<>();
+        
+        final String cadena = "SELECT * FROM PACIENTE WHERE FECHA_REC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -62,44 +62,22 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-
+        preparedStatement.setDate(1, FECHA_REC);
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        while (resultSet.next()) {
-            String codigo = resultSet.getString(2);
-            Date fecha = resultSet.getDate(1);
-            float valor = resultSet.getInt(3);
-
-            hba1c.add(new Hba1cDP(codigo, fecha, valor));
-        }
-        preparedStatement.close();
-        return hba1c;
-    }
-
-    public boolean modificarHba1c(String COD_HB, Date FECHA_HB, float CAL_HB) throws IOException, SQLException {
-
-        final String cadena = "UPDATE HBA1C SET FECHA_HB = ?, CAL_HB = ? WHERE COD_HB = ?";
-
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            con = DriverManager.getConnection(rp.obtenerURL());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        while(resultSet.next())
+        {
+            resultado.add(resultSet.getString(2));            
         }
 
-        preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(3, COD_HB);
-        preparedStatement.setDate(1, FECHA_HB);
-        preparedStatement.setFloat(2, CAL_HB);
-
-        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
+
         return resultado;
     }
 
-    public boolean eliminarHba1c(String COD_HB) throws IOException, SQLException {
+    public boolean eliminarRecomendacion(Date FECHA_REC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM HBA1C WHERE COD_HB = ?";
+        final String cadena = "DELETE * FROM CUENTA WHERE FECHA_REC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -109,7 +87,7 @@ public class Hba1cMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, COD_HB);
+        preparedStatement.setDate(1, FECHA_REC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
