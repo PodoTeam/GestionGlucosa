@@ -15,7 +15,7 @@ import java.util.Properties;
  * @author bryan
  */
 public class ReadProperties {
-      String raiz = System.getProperty("user.dir");
+      String raiz = System.getProperty("user.dir")+"\\GlucosaBajoControlBD.accdb";
     
      public  String obtenerProperties(String key) throws IOException {
 
@@ -40,6 +40,6 @@ public class ReadProperties {
     
     public String obtenerURL()throws IOException
     {
-        return obtenerProperties("URL")+raiz+"\\GlucosaBajoControlBD.accdb";
+        return obtenerProperties("URL")+raiz;
     }
 }
