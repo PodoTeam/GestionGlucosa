@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -51,9 +52,9 @@ public class IngresodePacientes extends javax.swing.JDialog {
         txt_tiposanguineo = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txt_tipodiabetes = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        txt_correo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,47 +106,38 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Altura:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
         txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_altura.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
+        jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Peso:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
         txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_peso.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
+        jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("TipoSanguineo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
         txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
+        jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("TipoDiabetes:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 210, -1));
-
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Correo:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
-
-        txt_correo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        txt_correo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
+        jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -155,7 +147,24 @@ public class IngresodePacientes extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Clave:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
+        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,7 +174,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
 
         pack();
@@ -175,6 +184,16 @@ public class IngresodePacientes extends javax.swing.JDialog {
         // TODO add your handling code here:
         Verificacion();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        Verificacion();
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
@@ -221,7 +240,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -231,10 +250,10 @@ public class IngresodePacientes extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField txt_altura;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_cedula;
-    private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_edad;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_peso;
@@ -247,17 +266,28 @@ public class IngresodePacientes extends javax.swing.JDialog {
         String nombre = txt_nombre.getText();
         String apellido = txt_apellido.getText();
         String edad = txt_edad.getText();
-        String correo = txt_correo.getText();
         String altura = txt_altura.getText();
         String peso = txt_peso.getText();
         String tipoSanguineo = txt_tiposanguineo.getText();
-        String tipoDiabetes =txt_tipodiabetes.getText();
-        if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(correo) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes))
+        String tipoDiabetes = txt_tipodiabetes.getText();
+        String clave = jPasswordField1.getText();
+        String letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+        
+        if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes) && "".equals(clave))
         {
             JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
         }
         else if("".equals(cedula)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Cédula");
+        }
+        else if(cedula.length() < 10){
+            JOptionPane.showMessageDialog(null, "La cédula debe tener una longitud de 10");
+        }
+        else if(cedula.length() > 10){
+            JOptionPane.showMessageDialog(null, "La cédula no debe tener una longitud mayor a 10");
+        }
+        else if(cedula.contains(letras)){
+            JOptionPane.showMessageDialog(null, "La cédula debe contener solo números");
         }
         else if("".equals(nombre)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Nombre");
@@ -267,9 +297,6 @@ public class IngresodePacientes extends javax.swing.JDialog {
         }
         else if("".equals(edad)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Edad");
-        }
-        else if("".equals(correo)){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese su correo electrónico");
         }
         else if("".equals(altura)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Altura");
@@ -282,6 +309,12 @@ public class IngresodePacientes extends javax.swing.JDialog {
         }
         else if("".equals(tipoDiabetes)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Tipo de diabetes");
+        }
+        else if("".equals(clave)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
+        }
+        else if(clave.length() < 4){
+              JOptionPane.showMessageDialog(null, "La contraseña deber tener una longitud mayor a cuatro");
         }
         else
         {

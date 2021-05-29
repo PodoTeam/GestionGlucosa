@@ -12,5 +12,4 @@ public class GlucosaBajoControl {
         login.setVisible(true);
         
     }
-
 }
