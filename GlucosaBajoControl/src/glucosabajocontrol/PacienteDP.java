@@ -11,29 +11,31 @@ package glucosabajocontrol;
  */
 public class PacienteDP {
     
-    String id;
+    String cedula;
     String nombre;
     String apellido;
     int edad;
+    String correo;
     float altura;
     float peso;
     String tipoSanguineo;
     int tipoDiabetes;
     CuentaDP Cuenta;
     
-    public PacienteDP(String id, String nombre, String apellido, int edad, float altura, float peso, String tipoSanguineo, int tipoDiabetes)
+    public PacienteDP(String cedula, String nombre, String apellido, int edad, String correo, float altura, float peso, String tipoSanguineo, int tipoDiabetes)
     {
-        this.id = id;
+        this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.correo = correo;
         this.altura = altura;
         this.peso = peso;
         this.tipoSanguineo = tipoSanguineo;
         this.tipoDiabetes = tipoDiabetes;
     }
-    public void setId(String id){
-        this.id = id;
+    public void setId(String cedula){
+        this.cedula = cedula;
     }
     public void setNombre(String nombre){
         this.nombre = nombre;
@@ -43,6 +45,9 @@ public class PacienteDP {
     }
     public void setEdad(int edad){
         this.edad = edad;
+    }
+    public void setCorreo(String correo){
+        this.correo = correo;
     }
     public void setAltura(float altura){
         this.altura = altura;
@@ -57,8 +62,8 @@ public class PacienteDP {
         this.tipoDiabetes = tipoDiabetes;
     }
     
-    public String getId(){
-        return id;
+    public String getCedula(){
+        return cedula;
     }
     public String getNombre(){
         return nombre;
@@ -68,6 +73,9 @@ public class PacienteDP {
     }
     public int getEdad(){
         return edad;
+    }
+    public String getCorreo(){
+        return correo;
     }
     public float getAltura(){
         return altura;

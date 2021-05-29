@@ -18,7 +18,10 @@ public class IngresodePacientes extends javax.swing.JDialog {
      */
     public IngresodePacientes(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Registro de nuevo paciente");
         initComponents();
+        
     }
 
     /**
@@ -54,13 +57,17 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingreso de Pacientes");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
@@ -69,6 +76,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
 
@@ -77,6 +85,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellido:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
@@ -85,6 +94,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Edad:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
@@ -93,6 +103,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Altura:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
@@ -101,6 +112,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Peso:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
 
@@ -109,6 +121,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("TipoSanguineo:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
 
@@ -117,6 +130,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("TipoDiabetes:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
@@ -125,6 +139,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Correo:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
 
@@ -132,6 +147,8 @@ public class IngresodePacientes extends javax.swing.JDialog {
         txt_correo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel1.add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,6 +252,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         float peso = Float.parseFloat(txt_peso.getText());
         String tipoSanguineo = txt_tiposanguineo.getText();
         int tipoDiabetes = Integer.parseInt(txt_tipodiabetes.getText());
+        
         if("".equals(cedula)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Cédula");
         }
@@ -247,6 +265,24 @@ public class IngresodePacientes extends javax.swing.JDialog {
         else if("".equals(edad)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Edad");
         }
-        
+        else if("".equals(correo)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su correo electrónico");
+        }
+        else if("".equals(altura)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Altura");
+        }
+        else if("".equals(peso)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Peso");
+        }
+        else if("".equals(tipoSanguineo)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Tipo de sangre");
+        }
+        else if("".equals(tipoDiabetes)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese su Tipo de diabetes");
+        }
+        else if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(correo) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes)){
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
+        }
+       
     }
 }

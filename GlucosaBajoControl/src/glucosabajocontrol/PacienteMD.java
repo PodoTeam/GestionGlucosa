@@ -26,9 +26,9 @@ public class PacienteMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarPaciente(String ID_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
+    public boolean insertarPaciente(String CED_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, String CORRE_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
 
-        final String cadena = "insert into PACIENTE (ID_PAC, NOM_PAC, APEL_PAC, EDAD_PAC, ALTURA_PAC, PESO_PAC, TIPOSAN_PAC, TIPODIAB_PAC) values (?,?,?,?,?,?,?,?)";
+        final String cadena = "insert into PACIENTE (CED_PAC, NOM_PAC, APEL_PAC, EDAD_PAC, CORRE_PAC, ALTURA_PAC, PESO_PAC, TIPOSAN_PAC, TIPODIAB_PAC) values (?,?,?,?,?,?,?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -38,10 +38,69 @@ public class PacienteMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, ID_PAC);
+        preparedStatement.setString(1, CED_PAC);
         preparedStatement.setString(2, NOM_PAC);
         preparedStatement.setString(3, APEL_PAC);
         preparedStatement.setInt(4, EDAD_PAC);
+        preparedStatement.setString(5, CORRE_PAC);
+        preparedStatement.setFloat(6, ALTURA_PAC);
+        preparedStatement.setFloat(7, PESO_PAC);
+        preparedStatement.setString(8, TIPOSAN_PAC);
+        preparedStatement.setInt(9, TIPODIAB_PAC);
+
+        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
+        preparedStatement.close();
+        return resultado;
+
+    }
+
+    public PacienteDP consultarPaciente(String CED_PAC) throws IOException, SQLException {
+
+        final String cadena = "SELECT * FROM PACIENTE WHERE CED_PAC = ?";
+
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            con = DriverManager.getConnection(rp.obtenerURL());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, CED_PAC);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        String nom = resultSet.getString(1);
+        String apel = resultSet.getString(2);
+        int edad = resultSet.getInt(3);
+        String correo = resultSet.getString(4);
+        float altura = resultSet.getFloat(5);
+        float peso = resultSet.getFloat(6);
+        String tipoSan = resultSet.getString(7);
+        int tipoDiab = resultSet.getInt(8);
+
+        preparedStatement.close();
+
+        return new PacienteDP(CED_PAC, nom, apel, edad, correo, altura, peso, tipoSan, tipoDiab);
+    }
+
+    public boolean modificarPaciente(String CED_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, String CORRE_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
+
+        final String cadena = "UPDATE PACIENTE SET NOM_PAC = ?, APEL_PAC = ?, EDAD_PAC = ?, CORRE_PAC = ?, ALTURA_PAC = ?, PESO_PAC = ?, TIPOSAN_PAC = ?, TIPODIAB_PAC = ? WHERE ID_PAC = ?";
+
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            con = DriverManager.getConnection(rp.obtenerURL());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(9, CED_PAC);
+        preparedStatement.setString(1, NOM_PAC);
+        preparedStatement.setString(2, APEL_PAC);
+        preparedStatement.setInt(3, EDAD_PAC);
+        preparedStatement.setString(4, CORRE_PAC);
         preparedStatement.setFloat(5, ALTURA_PAC);
         preparedStatement.setFloat(6, PESO_PAC);
         preparedStatement.setString(7, TIPOSAN_PAC);
@@ -50,65 +109,9 @@ public class PacienteMD {
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
-
     }
 
-    public PacienteDP consultarPaciente(String ID_PAC) throws IOException, SQLException {
-
-        final String cadena = "SELECT * FROM PACIENTE WHERE ID_PAC = ?";
-
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            con = DriverManager.getConnection(rp.obtenerURL());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, ID_PAC);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        String nom = resultSet.getString(1);
-        String apel = resultSet.getString(2);
-        int edad = resultSet.getInt(3);
-        float altura = resultSet.getFloat(4);
-        float peso = resultSet.getFloat(5);
-        String tipoSan = resultSet.getString(6);
-        int tipoDiab = resultSet.getInt(7);
-
-        preparedStatement.close();
-
-        return new PacienteDP(ID_PAC, nom, apel, edad, altura, peso, tipoSan, tipoDiab);
-    }
-
-    public boolean modificarPaciente(String ID_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC) throws IOException, SQLException {
-
-        final String cadena = "UPDATE PACIENTE SET NOM_PAC = ?, APEL_PAC = ?, EDAD_PAC = ?, ALTURA_PAC = ?, PESO_PAC = ?, TIPOSAN_PAC = ?, TIPODIAB_PAC = ? WHERE ID_PAC = ?";
-
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            con = DriverManager.getConnection(rp.obtenerURL());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(8, ID_PAC);
-        preparedStatement.setString(1, NOM_PAC);
-        preparedStatement.setString(2, APEL_PAC);
-        preparedStatement.setInt(3, EDAD_PAC);
-        preparedStatement.setFloat(4, ALTURA_PAC);
-        preparedStatement.setFloat(5, PESO_PAC);
-        preparedStatement.setString(6, TIPOSAN_PAC);
-        preparedStatement.setInt(7, TIPODIAB_PAC);
-
-        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
-        preparedStatement.close();
-        return resultado;
-    }
-
-    public boolean eliminarPaciente(String ID_PAC) throws IOException, SQLException {
+    public boolean eliminarPaciente(String CED_PAC) throws IOException, SQLException {
 
         final String cadena = "DELETE FROM PACIENTE WHERE COD_HB = ?";
 
@@ -120,7 +123,7 @@ public class PacienteMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, ID_PAC);
+        preparedStatement.setString(1, CED_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

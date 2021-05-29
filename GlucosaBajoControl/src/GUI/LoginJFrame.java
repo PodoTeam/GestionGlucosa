@@ -102,6 +102,11 @@ public class LoginJFrame extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("High Tower Text", 1, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Crear una nueva cuenta");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Felix Titling", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,6 +217,12 @@ public class LoginJFrame extends javax.swing.JFrame {
         {Ingreso(); }
     }//GEN-LAST:event_jTextUsuarioKeyPressed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        IngresodePacientes iP = new IngresodePacientes(this,true);
+        iP.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -279,6 +290,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 mP.setVisible(true);
                 this.setVisible(false);
             }
+            
     }
 
 
