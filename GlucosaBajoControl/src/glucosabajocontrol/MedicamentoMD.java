@@ -50,11 +50,11 @@ public class MedicamentoMD {
 
     }
 
-    public ArrayList<MedicamentoDP> consultarMedicamento() throws IOException, SQLException {
+    public ArrayList<MedicamentoDP> consultarMedicamento(String user) throws IOException, SQLException {
 
         ArrayList<MedicamentoDP> medicamentos = new ArrayList<>();
 
-        final String cadena = "SELECT * FROM MEDICAMENTO";
+        final String cadena = "SELECT * FROM MEDICAMENTO WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -64,14 +64,15 @@ public class MedicamentoMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, user);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
         while (resultSet.next()) {
             String nom = resultSet.getString(1);
-            float dosis = resultSet.getInt(2);
-            String indica = resultSet.getString(3);
-            boolean esta = resultSet.getBoolean(4);
+            float dosis = resultSet.getInt(3);
+            String indica = resultSet.getString(4);
+            boolean esta = resultSet.getBoolean(5);
 
             medicamentos.add(new MedicamentoDP(nom, dosis, indica, esta));
         }
