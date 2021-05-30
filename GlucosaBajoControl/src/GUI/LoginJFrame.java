@@ -6,6 +6,7 @@
 package GUI;
 
 import glucosabajocontrol.CuentaDP;
+import glucosabajocontrol.PacienteDP;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ import javax.swing.JOptionPane;
 public class LoginJFrame extends javax.swing.JFrame {
 
     static String user;
-
+    private String datos[] = new  String[2];
     /**
      * Creates new form LoginJFrame
      */
@@ -190,11 +191,11 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Lleva a una nueva ventana
-        String datos[];
         datos = Ingreso();
         if(!"-1".equals(datos[0]) && !"-1".equals(datos[1]))
         {
            Consulta(datos[0],datos[1]);
+           
         }
         
         // Verificacion
@@ -217,7 +218,6 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
-         String datos[];
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {  
             datos = Ingreso();  
@@ -231,7 +231,7 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
         // TODO add your handling code here:
-       String datos[];
+
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
             datos = Ingreso(); 
@@ -296,9 +296,10 @@ public class LoginJFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextUsuario;
     // End of variables declaration//GEN-END:variables
-    public String[] Ingreso()
+   
+    private String[] Ingreso()
     {
-        String datos[] = new  String[2];
+        
             String usuario  = jTextUsuario.getText();
             String contrasena = jPasswordField1.getText();
             if("".equals(usuario) && "".equals(contrasena)){
@@ -313,6 +314,7 @@ public class LoginJFrame extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
                 datos[1] = "-1";
+                 
             } 
             else if(contrasena.length() < 4){
               JOptionPane.showMessageDialog(null, "La contraseña deber tener una longitud mayor a cuatro");
@@ -334,7 +336,7 @@ public class LoginJFrame extends javax.swing.JFrame {
                 }
                 else
                 {
-                    MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
+                    MenuPrincipalJFrame mP = new MenuPrincipalJFrame(datos[0]);
                     mP.setVisible(true);
                     this.setVisible(false);
                 }
@@ -344,8 +346,5 @@ public class LoginJFrame extends javax.swing.JFrame {
                 Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
-
-
-
 }
 

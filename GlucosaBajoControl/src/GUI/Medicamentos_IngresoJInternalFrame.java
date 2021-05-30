@@ -5,6 +5,13 @@
  */
 package GUI;
 
+import glucosabajocontrol.MedicamentoDP;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author W10USER
@@ -14,7 +21,9 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
     /**
      * Creates new form Medicamentos_IngresoJInternalFrame
      */
-    public Medicamentos_IngresoJInternalFrame() {
+    static String user;
+    public Medicamentos_IngresoJInternalFrame(String user) {
+        this.user = user;
         initComponents();
     }
 
@@ -51,23 +60,10 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ingrese las indicaciones");
 
-        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField2FocusLost(evt);
-            }
-        });
-
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
-            }
-        });
-
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Guardar");
-        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -147,31 +143,25 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-        // TODO add your handling code here:
-         String nombre = jTextField2.getText();
-          if(nombre == "Daniel"){
-              System.out.println("Entro");
-          }
-          else 
-          {
-              System.out.println("Salio");
-          }
-    }//GEN-LAST:event_jTextField2FocusLost
-
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        // TODO add your handling code here:
         String nombre = jTextField2.getText();
-        String dosis = jTextField1.getText();
+        String dosis2 = jTextField1.getText();
         String indicaciones = jTextField3.getText();
-        if(!"".equals(nombre) && !"".equals(dosis ) && !"".equals(indicaciones) ){
-            jButton1.setEnabled(true);
-            System.out.println("EntroB");
+        if(!"".equals(nombre) && !"".equals(dosis2 ) && !"".equals(indicaciones) ){
+            int dosis = Integer.parseInt(jTextField1.getText());
+            MedicamentoDP mdp = new MedicamentoDP(nombre,dosis,indicaciones,true);
+            try {
+                if(mdp.ingreso(user)){
+                    JOptionPane.showMessageDialog(null,"Se ingreso con exito el medicamento");
+                }
+                else
+                    JOptionPane.showMessageDialog(null,"ERROR CON LA BASE DE DATOS");
+            } catch (IOException ex) {
+                Logger.getLogger(Medicamentos_IngresoJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Medicamentos_IngresoJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_jTextField3FocusLost
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

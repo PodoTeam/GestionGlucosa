@@ -26,9 +26,9 @@ public class MedicamentoMD {
     String raiz = System.getProperty("user.dir");
     
 
-    public boolean insertarMedicamento(String NOM_MEDI, float DOSIS_MEDI, String INDICA_MEDI, boolean ESTADO_MEDI) throws IOException, SQLException {
+    public boolean insertarMedicamento(String NOM_MEDI,String ID_PAC, float DOSIS_MEDI, String INDICA_MEDI, boolean ESTADO_MEDI) throws IOException, SQLException {
 
-        final String cadena = "insert into MEDICAMENTO (NOM_MEDI, DOSIS_MEDI, INDICA_MEDI, ESTADO_MEDI) values (?,?,?,?)";
+        final String cadena = "insert into MEDICAMENTO (NOM_MEDI, ID_PAC, DOSIS_MEDI, INDICA_MEDI, ESTADO_MEDI) values (?,?,?,?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -39,9 +39,10 @@ public class MedicamentoMD {
 
         preparedStatement = con.prepareStatement(cadena);
         preparedStatement.setString(1, NOM_MEDI);
-        preparedStatement.setFloat(2, DOSIS_MEDI);
-        preparedStatement.setString(3, INDICA_MEDI);
-        preparedStatement.setBoolean(4, ESTADO_MEDI);
+        preparedStatement.setString(2, ID_PAC);
+        preparedStatement.setFloat(3, DOSIS_MEDI);
+        preparedStatement.setString(4, INDICA_MEDI);
+        preparedStatement.setBoolean(5, ESTADO_MEDI);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

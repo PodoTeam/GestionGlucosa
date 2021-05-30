@@ -1,6 +1,9 @@
 
 package glucosabajocontrol;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 public class MedicamentoDP {
     
     String nombre;
@@ -47,7 +50,16 @@ public class MedicamentoDP {
     public void cargarMedicamentos(){
         
     }
+    public boolean ingreso(String user) throws IOException, SQLException{
+        MedicamentoMD medi = new MedicamentoMD();
+        PacienteDP pa = null;
+        System.out.println(user);
+        System.out.println(nombre);
+        System.out.println(dosis);
+        System.out.println(indicaciones);
+        boolean result = medi.insertarMedicamento(nombre,user,dosis, indicaciones, true);
+        return result;
+    }
     
 }
-    
-    
+      

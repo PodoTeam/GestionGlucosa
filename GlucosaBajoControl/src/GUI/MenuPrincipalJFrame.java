@@ -14,8 +14,10 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MenuPrincipalJFrame
      */
-    public MenuPrincipalJFrame() {
+    static String user;
+    public MenuPrincipalJFrame(String user) {
         this.setTitle("Menu Principal");
+        this.user =user;
         this.setLocationRelativeTo(null);
         initComponents();
     }
@@ -186,7 +188,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicamentoActionPerformed
-        Medicamentos_IngresoJInternalFrame im = new Medicamentos_IngresoJInternalFrame();
+        Medicamentos_IngresoJInternalFrame im = new Medicamentos_IngresoJInternalFrame(user);
         jDesktopPane2.add(im);
         im.setVisible(true);
 
@@ -253,7 +255,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipalJFrame().setVisible(true);
+                new MenuPrincipalJFrame(user).setVisible(true);
             }
         });
     }
