@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author bryan
@@ -184,7 +189,9 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        LoginJFrame vp = new LoginJFrame();
+        this.setVisible(false);
+        vp.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicamentoActionPerformed
@@ -220,7 +227,14 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-        InfoPacienteJInternalFrame pa = new InfoPacienteJInternalFrame();
+        InfoPacienteJInternalFrame pa = null;
+        try {
+            pa = new InfoPacienteJInternalFrame(user);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jDesktopPane2.add(pa);
         pa.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
