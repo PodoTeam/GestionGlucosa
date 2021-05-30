@@ -213,7 +213,14 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        MedicamentosModificacionJInternalFrame mm = new MedicamentosModificacionJInternalFrame();
+        MedicamentosModificacionJInternalFrame mm = null;
+        try {
+            mm = new MedicamentosModificacionJInternalFrame(user);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jDesktopPane2.add(mm);
         mm.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed

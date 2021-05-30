@@ -3,6 +3,7 @@ package glucosabajocontrol;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MedicamentoDP {
     
@@ -10,14 +11,17 @@ public class MedicamentoDP {
     float dosis;
     String indicaciones;
     Boolean estado; 
-    
+    MedicamentoMD medi;
     public MedicamentoDP(String nombre, float dosis, String indicaciones, Boolean estado)
     {
         this.nombre = nombre;
         this.dosis =dosis;
         this.indicaciones =indicaciones;
         this.estado = estado;
+        medi = new MedicamentoMD();
     }
+    public MedicamentoDP()
+    {medi = new MedicamentoMD(); }
     public void setMedicamento(String nombre) {
         this.nombre = nombre;
     }
@@ -47,16 +51,15 @@ public class MedicamentoDP {
     public Boolean getEstado() {
         return estado;
     }
-    public void cargarMedicamentos(){
+    public ArrayList<MedicamentoDP> cargarMedicamentos(String user) throws IOException, SQLException{
         
+        ArrayList<MedicamentoDP> medica = new ArrayList<MedicamentoDP>();
+        medica = medi.consultarMedicamento(user);
+        return medica;
     }
     public boolean ingreso(String user) throws IOException, SQLException{
-        MedicamentoMD medi = new MedicamentoMD();
+        
         PacienteDP pa = null;
-        System.out.println(user);
-        System.out.println(nombre);
-        System.out.println(dosis);
-        System.out.println(indicaciones);
         boolean result = medi.insertarMedicamento(nombre,user,dosis, indicaciones, true);
         return result;
     }
