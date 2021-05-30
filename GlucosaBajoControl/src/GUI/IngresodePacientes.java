@@ -5,7 +5,12 @@
  */
 package GUI;
 
+import glucosabajocontrol.PacienteDP;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class IngresodePacientes extends javax.swing.JDialog {
 
+    static String user;
     /**
      * Creates new form IngresodePacientes
      */
@@ -207,6 +213,33 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String cedula = txt_cedula.getText();
+        String nombre = txt_nombre.getText();
+        String apellido = txt_apellido.getText();
+        String edad3 = txt_edad.getText();
+        String altura3 = txt_altura.getText();
+        String peso3 = txt_peso.getText();
+        String tipoSanguineo = txt_tiposanguineo.getText();
+        String tipoDiabetes3 = txt_tipodiabetes.getText();
+        String clave = jPasswordField1.getText();
+        if(!"".equals(cedula) && !"".equals(nombre) && !"".equals(apellido) && !"".equals(edad3) && !"".equals(altura3) && !"".equals(peso3) && !"".equals(tipoSanguineo) && !"".equals(tipoDiabetes3) && !"".equals(clave)){
+            int edad = Integer.parseInt(txt_edad.getText());
+            float altura = Float.parseFloat(txt_altura.getText());
+            float peso = Float.parseFloat(txt_peso.getText());
+            int tipoDiabetes = Integer.parseInt(txt_tipodiabetes.getText());
+            PacienteDP pa = new PacienteDP(cedula,nombre,apellido,edad,altura,peso,tipoSanguineo,tipoDiabetes,clave);
+            try{
+                if(pa.agregar(user)){
+                    JOptionPane.showMessageDialog(null, "Se ingreso con éxito el paciente");
+                }
+                else 
+                    JOptionPane.showMessageDialog(null, "ERROR CON LA BASE DE DATOS");
+            }catch (IOException ex){
+                Logger.getLogger(IngresodePacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (SQLException ex){
+                Logger.getLogger(IngresodePacientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

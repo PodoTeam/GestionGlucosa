@@ -5,6 +5,9 @@
  */
 package glucosabajocontrol;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author Martin Guerra
@@ -98,8 +101,21 @@ public class PacienteDP {
     public void eliminar(){
         
     }
-    public void agregar(){
-       
+    public boolean agregar(String user) throws IOException, SQLException{
+        
+       PacienteMD paci = new PacienteMD();
+       System.out.println(user);
+       System.out.println(cedula);
+       System.out.println(nombre);
+       System.out.println(apellido);
+       System.out.println(edad);
+       System.out.println(altura);
+       System.out.println(peso);
+       System.out.println(tipoSanguineo);
+       System.out.println(tipoDiabetes);
+       System.out.println(clave);
+       boolean resultado = paci.insertarPaciente(cedula,nombre,apellido,edad,altura,peso,tipoSanguineo,tipoDiabetes,clave);
+       return resultado;
     }
    
 }
