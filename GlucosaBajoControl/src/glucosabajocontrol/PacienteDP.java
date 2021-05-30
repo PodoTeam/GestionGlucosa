@@ -107,10 +107,9 @@ public class PacienteDP {
     public void eliminar(){
         
     }
-    public boolean agregar(String user) throws IOException, SQLException{
+    public boolean agregar() throws IOException, SQLException{
         
        PacienteMD paci = new PacienteMD();
-       System.out.println(user);
        System.out.println(cedula);
        System.out.println(nombre);
        System.out.println(apellido);
@@ -119,8 +118,7 @@ public class PacienteDP {
        System.out.println(peso);
        System.out.println(tipoSanguineo);
        System.out.println(tipoDiabetes);
-       System.out.println(clave);
-       boolean resultado = paci.insertarPaciente(cedula,nombre,apellido,edad,altura,peso,tipoSanguineo,tipoDiabetes,clave);
+       boolean resultado = paci.insertarPaciente(cedula,nombre,apellido,edad,altura,peso,tipoSanguineo,tipoDiabetes);
        return resultado;
     }
    

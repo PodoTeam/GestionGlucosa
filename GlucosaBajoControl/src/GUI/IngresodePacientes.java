@@ -19,7 +19,6 @@ import javax.swing.JOptionPane;
  */
 public class IngresodePacientes extends javax.swing.JDialog {
 
-    static String user;
     /**
      * Creates new form IngresodePacientes
      */
@@ -229,7 +228,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
             int tipoDiabetes = Integer.parseInt(txt_tipodiabetes.getText());
             PacienteDP pa = new PacienteDP(cedula,nombre,apellido,edad,altura,peso,tipoSanguineo,tipoDiabetes,clave);
             try{
-                if(pa.agregar(user)){
+                if(pa.agregar()){
                     JOptionPane.showMessageDialog(null, "Se ingreso con éxito el paciente");
                 }
                 else 
