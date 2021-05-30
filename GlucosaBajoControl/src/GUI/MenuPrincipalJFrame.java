@@ -227,7 +227,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
-        GlucosaJInternalFrame g = new GlucosaJInternalFrame();
+        GlucosaJInternalFrame g = new GlucosaJInternalFrame(user);
         jDesktopPane2.add(g);
         g.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
