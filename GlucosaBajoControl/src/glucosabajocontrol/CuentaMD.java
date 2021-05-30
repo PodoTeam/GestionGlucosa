@@ -26,9 +26,9 @@ public class CuentaMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarCuenta(String USER_CUEN, String PASS_CUEN) throws IOException, SQLException {
+    public boolean insertarCuenta(String ID_PAC, String PASS_CUEN) throws IOException, SQLException {
 
-        final String cadena = "insert into CUENTA (USER_CUEN, PASS_CUEN) values (?,?)";
+        final String cadena = "insert into CUENTA (ID_PAC, PASS_CUEN) values (?,?)";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -38,7 +38,7 @@ public class CuentaMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, USER_CUEN);
+        preparedStatement.setString(1, ID_PAC);
         preparedStatement.setString(2, PASS_CUEN);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
@@ -47,9 +47,9 @@ public class CuentaMD {
 
     }
 
-    public boolean consultarCuenta(String pas_cue,String id_cue) throws IOException, SQLException {
+    public boolean consultarCuenta(String PASS_CUEN,String ID_PAC) throws IOException, SQLException {
 
-        final String cadena = "SELECT * FROM CUENTA WHERE ID_CUE = ? AND PAS_CUE = ?";
+        final String cadena = "SELECT * FROM CUENTA WHERE ID_PAC = ? AND PASS_CUEN = ?";
         boolean result = false; 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -59,12 +59,11 @@ public class CuentaMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1,  id_cue);
-        preparedStatement.setString(2, pas_cue);
+        preparedStatement.setString(1,  ID_PAC);
+        preparedStatement.setString(2, PASS_CUEN);
         this.result = preparedStatement.executeQuery();
 
-        //String correo = resultSet.getString(1);
-        //preparedStatement.close();
+        preparedStatement.close();
         if(this.result.next())
         {result = true;}
 
