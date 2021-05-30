@@ -54,9 +54,9 @@ public class PacienteMD {
 
     }
 
-    public PacienteDP consultarPaciente(String CED_PAC) throws IOException, SQLException {
+    public PacienteDP consultarPaciente(String ID_PAC) throws IOException, SQLException {
 
-        final String cadena = "SELECT * FROM PACIENTE WHERE CED_PAC = ?";
+        final String cadena = "SELECT * FROM PACIENTE WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -66,22 +66,34 @@ public class PacienteMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(1, CED_PAC);
+        preparedStatement.setString(1, ID_PAC);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        String nom = resultSet.getString(1);
-        String apel = resultSet.getString(2);
-        int edad = resultSet.getInt(3);
-        float altura = resultSet.getFloat(4);
-        float peso = resultSet.getFloat(5);
-        String tipoSan = resultSet.getString(6);
-        int tipoDiab = resultSet.getInt(7);
-        String clave = resultSet.getString(8);
+        result = preparedStatement.executeQuery();
+        
+        String nom = "-1";
+        String apel = "-1";
+        int edad = -1;
+        float altura = -1;
+        float peso = -1;
+        String tipoSan = "-1";
+        int tipoDiab = -1;
+        String clave = "-1";
+        
+        if(result.next())
+        {
+            nom = result.getString(2);
+            apel = result.getString(3);
+            edad = result.getInt(4);
+            altura = result.getFloat(5);
+            peso = result.getFloat(6);
+            tipoSan = result.getString(7);
+            tipoDiab = result.getInt(8);
+        }
+        
 
         preparedStatement.close();
 
-        return new PacienteDP(CED_PAC, nom, apel, edad, altura, peso, tipoSan, tipoDiab, clave);
+        return new PacienteDP(ID_PAC, nom, apel, edad, altura, peso, tipoSan, tipoDiab, clave);
     }
 
     public boolean modificarPaciente(String CED_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC, String CLA_PAC) throws IOException, SQLException {

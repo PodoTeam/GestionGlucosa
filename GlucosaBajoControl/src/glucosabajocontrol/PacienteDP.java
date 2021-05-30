@@ -5,6 +5,9 @@
  */
 package glucosabajocontrol;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author Martin Guerra
@@ -20,7 +23,7 @@ public class PacienteDP {
     String tipoSanguineo;
     int tipoDiabetes;
     String clave;
-    CuentaDP Cuenta;
+    //CuentaDP Cuenta;
     
     public PacienteDP(String cedula, String nombre, String apellido, int edad, float altura, float peso, String tipoSanguineo, int tipoDiabetes, String clave)
     {
@@ -33,6 +36,10 @@ public class PacienteDP {
         this.tipoSanguineo = tipoSanguineo;
         this.tipoDiabetes = tipoDiabetes;
         this.clave = clave;
+    }
+
+    public PacienteDP(String user) {
+        this.clave = user;
     }
     public void setId(String cedula){
         this.cedula = cedula;
@@ -89,8 +96,10 @@ public class PacienteDP {
     public String getClave(){
         return clave;
     }
-    public void consultarPaciente(){
-        
+    public PacienteDP consultarPaciente() throws IOException, SQLException{
+       PacienteMD pamd = new  PacienteMD();
+       PacienteDP pad = pamd.consultarPaciente(this.clave);
+       return pad;
     }
     public void modificar(){
         

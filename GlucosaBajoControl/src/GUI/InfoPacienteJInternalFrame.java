@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import glucosabajocontrol.PacienteDP;
+import java.io.IOException;
+import java.sql.SQLException;
+
 /**
  *
  * @author W10USER
@@ -14,8 +18,22 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form InfoPacienteJInternalFrame
      */
-    public InfoPacienteJInternalFrame() {
+    static String user;
+    public InfoPacienteJInternalFrame(String user) throws IOException, SQLException {
         initComponents();
+        this.user =user;
+        PacienteDP pa = new PacienteDP(user);
+        pa = pa.consultarPaciente();
+        jTextField1.setText(pa.getNombre());
+        jTextField3.setText(pa.getApellido());
+        jTextField2.setText(String.valueOf(pa.getEdad()));
+        jTextField4.setText(String.valueOf(pa.getAltura()));
+        jTextField5.setText(String.valueOf(pa.getPeso()));
+        jTextField9.setText(pa.getTipoSanguineo());
+        jTextField6.setText(String.valueOf(pa.getTipoDiabetes()));
+        jTextField7.setText(user);
+        
+        
     }
 
     /**
@@ -33,7 +51,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -44,7 +61,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(0, 102, 102));
@@ -75,10 +91,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Peso");
-
-        jLabel7.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Correo");
 
         jLabel8.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -116,8 +128,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField8.setEditable(false);
-
         jTextField9.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -144,15 +154,10 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jTextField4)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField8))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel10)
@@ -197,10 +202,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,7 +213,7 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,7 +236,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField1;
@@ -245,7 +245,6 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
