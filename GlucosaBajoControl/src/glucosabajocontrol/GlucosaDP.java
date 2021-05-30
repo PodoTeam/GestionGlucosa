@@ -4,30 +4,48 @@
  * and open the template in the editor.
  */
 package glucosabajocontrol;
+
+import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
  * @author W10USER
  */
 public class GlucosaDP {
+
+    String codigoGlucosa;
+    String codHb;
     Date fechaGlucosa;
     String momentoMedicion;
     int concentracionAzucar;
     String comentario;
     Hba1cDP hba1c;
-    public GlucosaDP(Date fechaGlucosa,String momentoMedicion,
-            int concentracionAzucar, String comentario, Hba1cDP hba1ic) 
+    GlucosaMD glucosaMD;
+
+    public GlucosaDP()
     {
+        
+    }
+    
+    public GlucosaDP(String codigoGlucosa, Date fechaGlucosa, String momentoMedicion,
+            int concentracionAzucar, String comentario, Hba1cDP hba1ic) {
+
+        this.codigoGlucosa = codigoGlucosa;
         this.fechaGlucosa = fechaGlucosa;
         this.momentoMedicion = momentoMedicion;
         this.concentracionAzucar = concentracionAzucar;
         this.comentario = comentario;
         this.hba1c = hba1ic;
     }
-     public GlucosaDP(Date fechaGlucosa,String momentoMedicion,
-            int concentracionAzucar, String comentario) 
-    {
+
+    public GlucosaDP(String codigoGlucosa, String codHb, Date fechaGlucosa, String momentoMedicion,
+            int concentracionAzucar, String comentario) {
+
+        this.codigoGlucosa = codigoGlucosa;
+        this.codHb = codHb;
         this.fechaGlucosa = fechaGlucosa;
         this.momentoMedicion = momentoMedicion;
         this.concentracionAzucar = concentracionAzucar;
@@ -73,17 +91,24 @@ public class GlucosaDP {
     public Hba1cDP getHba1c() {
         return hba1c;
     }
-    public void guardarDP(){
-        
+
+    public boolean guardarDP(String id) throws IOException, SQLException {
+        hba1c.guardarDP();
+        return glucosaMD.insertarGlucosa(codigoGlucosa, id, codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
-    public void consultarDP(){
-        
+
+    public ArrayList<GlucosaDP> consultarDP(String id) throws IOException, SQLException {
+        return glucosaMD.consultarGlucosa(id);
     }
-    public void eliminarDP(){
-        
+
+    public boolean eliminarDP() throws IOException, SQLException {
+        hba1c.eliminarDP();
+        return glucosaMD.eliminarGlucosa(codigoGlucosa);
     }
-    public void modificarDP(){
-        
+
+    public boolean modificarDP() throws IOException, SQLException {
+        hba1c.modificarDP();
+        return glucosaMD.modificarGlucosa(codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
-    
+
 }

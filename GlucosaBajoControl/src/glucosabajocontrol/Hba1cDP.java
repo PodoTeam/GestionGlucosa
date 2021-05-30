@@ -5,7 +5,10 @@
  */
 package glucosabajocontrol;
 
+import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -48,16 +51,18 @@ public class Hba1cDP {
         return valor;
     }
 
-    public void modificar() {
+    public void modificarDP() {
 
     }
 
-    public void eliminar() {
+    public void eliminarDP() {
 
     }
 
-    public void crear() {
+    public void guardarDP() {
 
     }
-
+    public void consultarDP() throws IOException, SQLException {
+       
+    }
 }

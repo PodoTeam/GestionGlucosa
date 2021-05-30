@@ -5,6 +5,15 @@
  */
 package GUI;
 
+import glucosabajocontrol.GlucosaDP;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author W10USER
@@ -14,8 +23,12 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form GlucosaJInternalFrame
      */
-    public GlucosaJInternalFrame() {
+    glucosabajocontrol.GlucosaDP glucosa = new GlucosaDP();
+    String id = "";
+
+    public GlucosaJInternalFrame(String id) {
         initComponents();
+        this.id = id;
     }
 
     /**
@@ -42,10 +55,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Fecha Glucosa", "Momento Medición", "Concentración azucar", "Comentario", "HBA1C"
@@ -79,18 +89,20 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -102,4 +114,26 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    public void cargarDatos() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+        //clases a consultar        
+        ArrayList<GlucosaDP> glucosas = new ArrayList<>();
+
+        try {
+            //consulta de trabajadores en el grupo
+            glucosas = glucosa.consultarDP(id);
+            if (glucosas.size() > 0) {
+                for (GlucosaDP medicion : glucosas) {
+                    model.insertRow(model.getRowCount(), new Object[]{medicion.getFechaGlucosa(), medicion.getMomentoMedicion(), medicion.getConcentracionAzucar(), medicion.getComentario()});
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "No existen Trabajadores");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

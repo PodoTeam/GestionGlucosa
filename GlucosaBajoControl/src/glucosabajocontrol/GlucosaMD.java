@@ -12,21 +12,80 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Date;
+
 /**
  *
  * @author bryan
  */
 public class GlucosaMD {
-     ReadProperties rp = new ReadProperties();
+
+    ReadProperties rp = new ReadProperties();
     Connection con;
     PreparedStatement preparedStatement;
     ResultSet result;
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public boolean insertarGlucosa(Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
+    public boolean insertarGlucosa(String COD_GLUC, String ID_PAC, String COD_HB, Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
 
-        final String cadena = "insert into GLUCOSA (FECHA_GLUC, MOMEN_GLUC, AZU_GLUC, COMEN_GLUC) values (?,?,?,?)";
+        final String cadena = "insert into GLUCOSA (COD_GLUC, ID_PAC, COD_HB, FECHA_GLUC, MOMEN_GLUC, AZU_GLUC, COMEN_GLUC) values (?,?,?,?,?,?,?)";
+
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            con = DriverManager.getConnection(rp.obtenerURL());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, COD_GLUC);
+        preparedStatement.setString(2, ID_PAC);
+        preparedStatement.setString(3, COD_HB);
+        preparedStatement.setDate(4, FECHA_GLUC);
+        preparedStatement.setString(5, MOMEN_GLUC);
+        preparedStatement.setInt(6, AZU_GLUC);
+        preparedStatement.setString(7, COMEN_GLUC);
+
+        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
+        preparedStatement.close();
+        return resultado;
+
+    }
+
+    public ArrayList<GlucosaDP> consultarGlucosa(String ID_PAC) throws IOException, SQLException {
+
+        ArrayList<GlucosaDP> glucosa = new ArrayList<>();
+
+        final String cadena = "SELECT * FROM GLUCOSA WHERE ID_PAC = ?";
+
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            con = DriverManager.getConnection(rp.obtenerURL());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        preparedStatement = con.prepareStatement(cadena);
+        preparedStatement.setString(1, ID_PAC);
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            String cod = resultSet.getString(1);
+            String hb = resultSet.getString(3);
+            Date fecha = resultSet.getDate(4);
+            String momen = resultSet.getString(5);
+            int azu = resultSet.getInt(6);
+            String comen = resultSet.getString(7);
+
+            glucosa.add(new GlucosaDP(cod, hb, fecha, momen, azu, comen));
+        }
+        preparedStatement.close();
+        return glucosa;
+    }
+
+    public boolean modificarGlucosa(String COD_GLUC, Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
+
+        final String cadena = "UPDATE GLUCOSA SET FECHA_GLUC = ?, MOMEN_GLUC = ?, AZU_GLUC = ?, COMEN_GLUC = ? WHERE COD_GLUC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -40,18 +99,16 @@ public class GlucosaMD {
         preparedStatement.setString(2, MOMEN_GLUC);
         preparedStatement.setInt(3, AZU_GLUC);
         preparedStatement.setString(4, COMEN_GLUC);
+        preparedStatement.setString(5, COD_GLUC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
-
     }
 
-    public ArrayList<GlucosaDP> consultarGlucosa() throws IOException, SQLException {
+    public boolean eliminarGlucosa(String COD_GLUC) throws IOException, SQLException {
 
-        ArrayList<GlucosaDP> glucosa = new ArrayList<>();
-
-        final String cadena = "SELECT * FROM GLUCOSA";
+        final String cadena = "DELETE FROM GLUCOSA WHERE COD_GLUC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -61,60 +118,11 @@ public class GlucosaMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        while (resultSet.next()) {
-            Date fecha = resultSet.getDate(1);
-            String momen = resultSet.getString(2);
-            int azu = resultSet.getInt(3);
-            String comen = resultSet.getString(4);
-
-            glucosa.add(new GlucosaDP(fecha, momen, azu, comen));
-        }
-        preparedStatement.close();
-        return glucosa;
-    }
-
-    public boolean modificarGlucosa(Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
-
-        final String cadena = "UPDATE GLUCOSA SET MOMEN_GLUC = ?, AZU_GLUC = ?, COMEN_GLUC = ? WHERE FECHA_GLUC = ?";
-
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            con = DriverManager.getConnection(rp.obtenerURL());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setDate(4, FECHA_GLUC);
-        preparedStatement.setString(1, MOMEN_GLUC);
-        preparedStatement.setInt(2, AZU_GLUC);
-        preparedStatement.setString(3, COMEN_GLUC);
+        preparedStatement.setString(1, COD_GLUC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
     }
-    
-    public boolean eliminarGlucosa(Date FECHA_GLUC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM GLUCOSA WHERE FECHA_GLUC = ?";
-
-        try {
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            con = DriverManager.getConnection(rp.obtenerURL());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MedicamentoMD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setDate(1, FECHA_GLUC);
-
-        boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
-        preparedStatement.close();
-        return resultado;
-    }
-    
 }
