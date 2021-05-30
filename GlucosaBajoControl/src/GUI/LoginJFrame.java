@@ -323,17 +323,14 @@ public class LoginJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
                 datos[1] = "-1";
             } 
-             else if(contrasena.length() < 4){
+            else if(contrasena.length() < 4){
               JOptionPane.showMessageDialog(null, "La contraseña deber tener una longitud mayor a cuatro");
-        }
+            }
             else{
                 datos[0]= usuario;
                 datos[1] = contrasena;
             }
          return datos; 
     }
-
-
-
 }
 
