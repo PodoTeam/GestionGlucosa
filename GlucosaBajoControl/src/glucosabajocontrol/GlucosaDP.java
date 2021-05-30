@@ -25,20 +25,22 @@ public class GlucosaDP {
     Hba1cDP hba1c;
     GlucosaMD glucosaMD;
 
-    public GlucosaDP()
-    {
-        
+    public GlucosaDP() {
+        hba1c = new Hba1cDP();
+        glucosaMD = new GlucosaMD();
     }
-    
+
     public GlucosaDP(String codigoGlucosa, Date fechaGlucosa, String momentoMedicion,
-            int concentracionAzucar, String comentario, Hba1cDP hba1ic) {
+            int concentracionAzucar, String comentario, Hba1cDP hba1c) {
 
         this.codigoGlucosa = codigoGlucosa;
         this.fechaGlucosa = fechaGlucosa;
         this.momentoMedicion = momentoMedicion;
         this.concentracionAzucar = concentracionAzucar;
         this.comentario = comentario;
-        this.hba1c = hba1ic;
+        this.hba1c = hba1c;
+        glucosaMD = new GlucosaMD();
+
     }
 
     public GlucosaDP(String codigoGlucosa, String codHb, Date fechaGlucosa, String momentoMedicion,
@@ -50,6 +52,17 @@ public class GlucosaDP {
         this.momentoMedicion = momentoMedicion;
         this.concentracionAzucar = concentracionAzucar;
         this.comentario = comentario;
+        hba1c = new Hba1cDP();
+        glucosaMD = new GlucosaMD();
+
+    }
+
+    public void setCodigoGlucosa(String codigoGlucosa) {
+        this.codigoGlucosa = codigoGlucosa;
+    }
+
+    public void setCodigoHb(String codHb) {
+        this.codHb = codHb;
     }
 
     public void setFechaGlucosa(Date fechaGlucosa) {
@@ -93,7 +106,7 @@ public class GlucosaDP {
     }
 
     public boolean guardarDP(String id) throws IOException, SQLException {
-        hba1c.guardarDP();
+        //hba1c.guardarDP();
         return glucosaMD.insertarGlucosa(codigoGlucosa, id, codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
 
@@ -102,12 +115,12 @@ public class GlucosaDP {
     }
 
     public boolean eliminarDP() throws IOException, SQLException {
-        hba1c.eliminarDP();
+        //hba1c.eliminarDP();
         return glucosaMD.eliminarGlucosa(codigoGlucosa);
     }
 
     public boolean modificarDP() throws IOException, SQLException {
-        hba1c.modificarDP();
+        //hba1c.modificarDP();
         return glucosaMD.modificarGlucosa(codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
 

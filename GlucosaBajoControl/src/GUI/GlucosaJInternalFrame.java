@@ -29,6 +29,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
     public GlucosaJInternalFrame(String id) {
         initComponents();
         this.id = id;
+        cargarDatos();
     }
 
     /**
@@ -115,7 +116,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
-    public void cargarDatos() throws IOException {
+    public void cargarDatos(){
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
@@ -130,9 +131,11 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
                     model.insertRow(model.getRowCount(), new Object[]{medicion.getFechaGlucosa(), medicion.getMomentoMedicion(), medicion.getConcentracionAzucar(), medicion.getComentario()});
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "No existen Trabajadores");
+                JOptionPane.showMessageDialog(this, "No existen Mediciones de glucosa");
             }
         } catch (SQLException ex) {
+            Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

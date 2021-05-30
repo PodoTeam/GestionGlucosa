@@ -56,7 +56,7 @@ public class GlucosaMD {
 
         ArrayList<GlucosaDP> glucosa = new ArrayList<>();
 
-        final String cadena = "SELECT * FROM GLUCOSA WHERE ID_PAC = ?";
+        final String cadena = "SELECT * FROM GLUCOSA WHERE ID_PAC = ? ORDER BY FECHA_GLUC ASC";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

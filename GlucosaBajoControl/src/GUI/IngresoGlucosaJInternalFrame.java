@@ -5,6 +5,14 @@
  */
 package GUI;
 
+import glucosabajocontrol.GlucosaDP;
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author W10USER
@@ -14,8 +22,12 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form IngresoGlucosaJInternalFrame
      */
-    public IngresoGlucosaJInternalFrame() {
+    GlucosaDP glucosa = new GlucosaDP();
+    String id = "";
+
+    public IngresoGlucosaJInternalFrame(String id) {
         initComponents();
+        this.id = id;
     }
 
     /**
@@ -36,7 +48,7 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setBorder(null);
@@ -68,6 +80,11 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,13 +104,13 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(290, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -107,7 +124,7 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -128,10 +145,41 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //boton guardar
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Date fecha = new java.sql.Date(jDateChooser1.getDate().getTime());
+        String momento = jTextField2.getText();
+        int azucar = Integer.parseInt(jTextField3.getText());
+        String observ = jTextField4.getText();
+
+        if (!jDateChooser1.equals("") && !jTextField2.equals("") && !jTextField3.equals("") && !jTextField4.equals("")) {
+            glucosa.setCodigoGlucosa(fecha.getDate() + "1");
+            glucosa.setCodigoHb("1");
+            glucosa.setFechaGlucosa(fecha);
+            glucosa.setMomentoMedicion(momento);
+            glucosa.setConcentracionAzucar(azucar);
+            glucosa.setComentario(observ);
+
+            try {
+                glucosa.guardarDP(id);
+                JOptionPane.showMessageDialog(this, "Ingreso de medición de glucosa exitoso");
+                jDateChooser1.setDate(null);
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+            } catch (IOException ex) {
+                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

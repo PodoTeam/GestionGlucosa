@@ -20,6 +20,9 @@ public class Hba1cDP {
     Date fechaCalculo;
     float valor;
 
+    public Hba1cDP() {
+    }
+
     public Hba1cDP(String codigo, Date fechaGlucosa, float valor) {
         this.codigo = codigo;
         this.fechaCalculo = fechaGlucosa;
@@ -62,7 +65,8 @@ public class Hba1cDP {
     public void guardarDP() {
 
     }
+
     public void consultarDP() throws IOException, SQLException {
-       
+
     }
 }
