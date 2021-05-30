@@ -41,6 +41,13 @@ public class CuentaDP {
         boolean result  = cuemd.consultarCuenta(clave,usuario);
         return  result;
     }
+    public boolean ingresarcon() throws IOException, SQLException{
+        CuentaMD cuemd = new CuentaMD();
+        System.out.println(usuario);
+        System.out.println(clave);
+        boolean resultado = cuemd.insertarCuenta(usuario, clave);
+        return resultado;
+    }
     public void grabar(){
         
     }

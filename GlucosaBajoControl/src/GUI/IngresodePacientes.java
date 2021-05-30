@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import glucosabajocontrol.CuentaDP;
 import glucosabajocontrol.PacienteDP;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -239,6 +240,15 @@ public class IngresodePacientes extends javax.swing.JDialog {
                 Logger.getLogger(IngresodePacientes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        CuentaDP cuedp = new CuentaDP(cedula,clave);
+        try {
+            cuedp.ingresarcon();
+        } catch (IOException ex) {
+            Logger.getLogger(IngresodePacientes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(IngresodePacientes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
