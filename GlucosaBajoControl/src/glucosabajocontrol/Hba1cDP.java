@@ -67,6 +67,6 @@ public class Hba1cDP {
     }
 
     public void consultarDP() throws IOException, SQLException {
-
+        
     }
 }
