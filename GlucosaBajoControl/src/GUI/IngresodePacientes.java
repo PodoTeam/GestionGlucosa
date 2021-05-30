@@ -74,6 +74,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_cedula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_cedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_cedulaFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -101,6 +106,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_edad.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_edad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_edad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_edadFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -110,6 +120,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_altura.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_altura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_alturaFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -119,6 +134,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_peso.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_peso.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_pesoFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -137,6 +157,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_tipodiabetes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_tipodiabetesFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
@@ -182,6 +207,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
         Verificacion();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -194,6 +220,56 @@ public class IngresodePacientes extends javax.swing.JDialog {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         Verificacion();
     }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void txt_cedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cedulaFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(txt_cedula.getText());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
+            txt_cedula.setText("");
+        }
+    }//GEN-LAST:event_txt_cedulaFocusLost
+
+    private void txt_edadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_edadFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(txt_edad.getText());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
+            txt_edad.setText("");
+        }
+    }//GEN-LAST:event_txt_edadFocusLost
+
+    private void txt_alturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_alturaFocusLost
+        // TODO add your handling code here:
+        try{
+            Float.parseFloat(txt_altura.getText());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
+            txt_altura.setText("");
+        }
+    }//GEN-LAST:event_txt_alturaFocusLost
+
+    private void txt_pesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_pesoFocusLost
+        // TODO add your handling code here:
+        try{
+            Float.parseFloat(txt_peso.getText());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
+            txt_peso.setText("");
+        }
+    }//GEN-LAST:event_txt_pesoFocusLost
+
+    private void txt_tipodiabetesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tipodiabetesFocusLost
+        // TODO add your handling code here:
+        try{
+            Integer.parseInt(txt_tipodiabetes.getText());
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
+            txt_tipodiabetes.setText("");
+        }
+    }//GEN-LAST:event_txt_tipodiabetesFocusLost
 
     /**
      * @param args the command line arguments
@@ -271,7 +347,6 @@ public class IngresodePacientes extends javax.swing.JDialog {
         String tipoSanguineo = txt_tiposanguineo.getText();
         String tipoDiabetes = txt_tipodiabetes.getText();
         String clave = jPasswordField1.getText();
-        String letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
         
         if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes) && "".equals(clave))
         {
@@ -285,9 +360,6 @@ public class IngresodePacientes extends javax.swing.JDialog {
         }
         else if(cedula.length() > 10){
             JOptionPane.showMessageDialog(null, "La cédula no debe tener una longitud mayor a 10");
-        }
-        else if(cedula.contains(letras)){
-            JOptionPane.showMessageDialog(null, "La cédula debe contener solo números");
         }
         else if("".equals(nombre)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Nombre");
@@ -314,7 +386,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Por favor ingrese su contraseña");
         }
         else if(clave.length() < 4){
-              JOptionPane.showMessageDialog(null, "La contraseña deber tener una longitud mayor a cuatro");
+            JOptionPane.showMessageDialog(null, "La contraseña debe tener una longitud mayor a cuatro");
         }
         else
         {
