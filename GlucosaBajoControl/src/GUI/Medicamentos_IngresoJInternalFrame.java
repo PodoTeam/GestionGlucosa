@@ -51,10 +51,28 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ingrese las indicaciones");
 
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
+
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Guardar");
+        jButton1.setEnabled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
@@ -128,6 +146,33 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        // TODO add your handling code here:
+         String nombre = jTextField2.getText();
+          if(nombre == "Daniel"){
+              System.out.println("Entro");
+          }
+          else 
+          {
+              System.out.println("Salio");
+          }
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        // TODO add your handling code here:
+        String nombre = jTextField2.getText();
+        String dosis = jTextField1.getText();
+        String indicaciones = jTextField3.getText();
+        if(!"".equals(nombre) && !"".equals(dosis ) && !"".equals(indicaciones) ){
+            jButton1.setEnabled(true);
+            System.out.println("EntroB");
+        }
+    }//GEN-LAST:event_jTextField3FocusLost
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -140,4 +185,16 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    public void Verificar(){
+        
+        
+        
+        
+    }
+
 }
+
+
+
+

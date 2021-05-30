@@ -194,25 +194,7 @@ public class LoginJFrame extends javax.swing.JFrame {
         datos = Ingreso();
         if(!"-1".equals(datos[0]) && !"-1".equals(datos[1]))
         {
-            CuentaDP cue =new CuentaDP(datos[0],datos[1]);
-            try {
-                if(!cue.verificar())
-                {
-                    JOptionPane.showMessageDialog(null, "Usuario no registrado");
-                }
-                else
-                {
-                    MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
-                    mP.setVisible(true);
-                    this.setVisible(false);
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            
+           Consulta(datos[0],datos[1]);
         }
         
         // Verificacion
@@ -235,19 +217,28 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
         // TODO add your handling code here:
+         String datos[];
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {  
-            Ingreso();  
+            datos = Ingreso();  
+            if(!"-1".equals(datos[0]) && !"-1".equals(datos[1]))
+            {
+                Consulta(datos[0],datos[1]);
+            }
             
         }
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     private void jTextUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextUsuarioKeyPressed
         // TODO add your handling code here:
-      
+       String datos[];
         if(evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            Ingreso(); 
+            datos = Ingreso(); 
+            if(!"-1".equals(datos[0]) && !"-1".equals(datos[1]))
+            {
+                 Consulta(datos[0],datos[1]);
+            }
             //consultarCuenta
         }
     }//GEN-LAST:event_jTextUsuarioKeyPressed
@@ -332,5 +323,29 @@ public class LoginJFrame extends javax.swing.JFrame {
             }
          return datos; 
     }
+
+
+    private void Consulta(String  dato1, String dato2) {
+         CuentaDP cue =new CuentaDP(dato1,dato2);
+            try {
+                if(!cue.verificar())
+                {
+                    JOptionPane.showMessageDialog(null, "Usuario no registrado");
+                }
+                else
+                {
+                    MenuPrincipalJFrame mP = new MenuPrincipalJFrame();
+                    mP.setVisible(true);
+                    this.setVisible(false);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+
+
 }
 
