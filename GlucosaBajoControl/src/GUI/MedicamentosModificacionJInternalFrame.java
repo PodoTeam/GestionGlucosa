@@ -21,30 +21,13 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
     /**
      * Creates new form MedicamentosModificacionJInternalFrame
      */
-    DefaultTableModel modelo =  new DefaultTableModel();
+
     ArrayList<MedicamentoDP> medica = new ArrayList<MedicamentoDP>();
     static String user;
     public MedicamentosModificacionJInternalFrame(String user) throws IOException, SQLException {
         initComponents();
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Dosis");
-        modelo.addColumn("Indicaciones");
-        modelo.addColumn("Estado");
-        jTable1.setModel(modelo);
         this.user = user;
-        Object datos[] = new Object[4];
-        MedicamentoDP me = new MedicamentoDP();
-        medica = me.cargarMedicamentos(this.user);
-        for (int i = 0; i < medica.size(); i++) {
-            datos[0] = medica.get(i).getNombre();
-            datos[1] = medica.get(i).getDosis();
-            datos[2] = medica.get(i).getIndicaciones();
-            datos[3] = medica.get(i).getEstado();
-            modelo.addRow(datos);
-        }
-        jTable1.setModel(modelo);
-        
-        
+        cargar(this.user);
     }
 
     /**
@@ -131,4 +114,19 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void cargar(String user) throws IOException, SQLException {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        Object datos[] = new Object[4];
+        MedicamentoDP me = new MedicamentoDP();
+        medica = me.cargarMedicamentos(user);
+        for (int i = 0; i < medica.size(); i++) {
+            datos[0] = medica.get(i).getNombre();
+            datos[1] = medica.get(i).getDosis();
+            datos[2] = medica.get(i).getIndicaciones();
+            datos[3] = medica.get(i).getEstado();
+            modelo.addRow(datos);
+        }
+        jTable1.setModel(modelo);
+    }
 }
