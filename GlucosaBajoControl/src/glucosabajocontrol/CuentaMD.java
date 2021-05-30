@@ -82,8 +82,8 @@ public class CuentaMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(2, ID_PAC);
         preparedStatement.setString(1, PASS_CUEN);
+         preparedStatement.setString(2, ID_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
