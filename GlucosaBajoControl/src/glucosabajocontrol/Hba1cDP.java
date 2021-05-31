@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +21,8 @@ public class Hba1cDP {
     String codigo;
     Date fechaCalculo;
     float valor;
+
+    Hba1cMD hba1cMD = new Hba1cMD();
 
     public Hba1cDP() {
     }
@@ -62,11 +66,18 @@ public class Hba1cDP {
 
     }
 
-    public void guardarDP() {
-
+    public void guardarDP(int conAzucar) {
+        valor = (conAzucar + 46.7f) / 28.7f;
+        try {
+            hba1cMD.insertarHba1c(codigo, fechaCalculo, valor);
+        } catch (IOException ex) {
+            Logger.getLogger(Hba1cDP.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Hba1cDP.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public void consultarDP() throws IOException, SQLException {
-        
+    public ArrayList<Hba1cDP> consultarDP() throws IOException, SQLException {
+        return hba1cMD.consultarHba1c();
     }
 }

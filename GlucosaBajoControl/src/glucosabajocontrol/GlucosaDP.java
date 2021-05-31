@@ -106,7 +106,7 @@ public class GlucosaDP {
     }
 
     public boolean guardarDP(String id) throws IOException, SQLException {
-        //hba1c.guardarDP();
+        hba1c.guardarDP(concentracionAzucar);
         return glucosaMD.insertarGlucosa(codigoGlucosa, id, codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
 
