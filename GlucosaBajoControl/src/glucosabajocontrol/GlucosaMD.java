@@ -83,9 +83,9 @@ public class GlucosaMD {
         return glucosa;
     }
 
-    public boolean modificarGlucosa(String COD_GLUC, String ID_PAC, Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
+    public boolean modificarGlucosa(String COD_GLUC, Date FECHA_GLUC, String MOMEN_GLUC, int AZU_GLUC, String COMEN_GLUC) throws IOException, SQLException {
 
-        final String cadena = "UPDATE GLUCOSA SET FECHA_GLUC = ?, MOMEN_GLUC = ?, AZU_GLUC = ?, COMEN_GLUC = ? WHERE COD_GLUC = ? AND ID_PAC = ?";
+        final String cadena = "UPDATE GLUCOSA SET FECHA_GLUC = ?, MOMEN_GLUC = ?, AZU_GLUC = ?, COMEN_GLUC = ? WHERE COD_GLUC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -100,16 +100,15 @@ public class GlucosaMD {
         preparedStatement.setInt(3, AZU_GLUC);
         preparedStatement.setString(4, COMEN_GLUC);
         preparedStatement.setString(5, COD_GLUC);
-        preparedStatement.setString(6, ID_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
     }
 
-    public boolean eliminarGlucosa(String COD_GLUC, String ID_PAC) throws IOException, SQLException {
+    public boolean eliminarGlucosa(String COD_GLUC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM GLUCOSA WHERE COD_GLUC = ? AND ID_PAC = ?";
+        final String cadena = "DELETE FROM GLUCOSA WHERE COD_GLUC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -120,7 +119,6 @@ public class GlucosaMD {
 
         preparedStatement = con.prepareStatement(cadena);
         preparedStatement.setString(1, COD_GLUC);
-        preparedStatement.setString(2, ID_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

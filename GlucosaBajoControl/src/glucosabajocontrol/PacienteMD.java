@@ -124,7 +124,7 @@ public class PacienteMD {
 
     public boolean eliminarPaciente(String ID_PAC) throws IOException, SQLException {
 
-        final String cadena = "DELETE FROM PACIENTE WHERE ID_PAC = ?";
+        final String cadena = "DELETE FROM PACIENTE WHERE COD_HB = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

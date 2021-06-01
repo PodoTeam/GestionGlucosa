@@ -108,8 +108,7 @@ public class GlucosaDP {
     public boolean guardarDP(String id) throws IOException, SQLException {
         hba1c.setCodigo(codigoGlucosa);
         hba1c.setFechaGlucosa(fechaGlucosa);
-        hba1c.setMomentoMedicion(momentoMedicion);
-        hba1c.guardarDP(concentracionAzucar, id);
+        hba1c.guardarDP(concentracionAzucar);
         return glucosaMD.insertarGlucosa(codigoGlucosa, id, codHb, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
     }
 
@@ -117,18 +116,18 @@ public class GlucosaDP {
         return glucosaMD.consultarGlucosa(id);
     }
 
-    public boolean eliminarDP(String id) throws IOException, SQLException {
-        boolean aux = glucosaMD.eliminarGlucosa(codigoGlucosa, id);
+    public boolean eliminarDP() throws IOException, SQLException {
+        boolean aux = glucosaMD.eliminarGlucosa(codigoGlucosa);
         hba1c.setCodigo(codigoGlucosa);
-        hba1c.eliminarDP(id);
+        hba1c.eliminarDP();
         return aux;
     }
 
-    public boolean modificarDP(String id) throws IOException, SQLException {
-        boolean aux = glucosaMD.modificarGlucosa(codigoGlucosa, id, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
+    public boolean modificarDP() throws IOException, SQLException {
+        boolean aux = glucosaMD.modificarGlucosa(codigoGlucosa, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
         hba1c.setCodigo(codigoGlucosa);
         hba1c.setFechaGlucosa(fechaGlucosa);
-        hba1c.modificarDP(concentracionAzucar, id);
+        hba1c.modificarDP(concentracionAzucar);
         return aux;
     }
 

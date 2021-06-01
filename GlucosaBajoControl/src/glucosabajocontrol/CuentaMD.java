@@ -106,7 +106,6 @@ public class CuentaMD {
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
-        System.out.println(resultado);
         return resultado;
     }
 }
