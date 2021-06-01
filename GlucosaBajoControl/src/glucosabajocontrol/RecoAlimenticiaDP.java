@@ -13,11 +13,11 @@ import java.sql.Date;
  */
 public class RecoAlimenticiaDP {
     
-    PacienteDP Paciente;
-    AlimentoDP Alimento;
+    String Paciente;
+    String Alimento;
     Date fechaReco;
     
-    public RecoAlimenticiaDP(PacienteDP Paciente, AlimentoDP alimento, Date fechaReco)
+    public RecoAlimenticiaDP(String Paciente, String alimento, Date fechaReco)
     {
         this.Paciente = Paciente;
         this.Alimento = Alimento;

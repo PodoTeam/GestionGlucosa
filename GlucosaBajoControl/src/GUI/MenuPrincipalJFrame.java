@@ -212,7 +212,14 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        AlimentosJInternalFrame ali = new AlimentosJInternalFrame();
+        AlimentosJInternalFrame ali = null;
+        try {
+            ali = new AlimentosJInternalFrame(user);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jDesktopPane2.add(ali);
         ali.setVisible(true);   
     }//GEN-LAST:event_jMenuItem5ActionPerformed
@@ -251,7 +258,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         pa.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
- Updated upstream
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
         //CuentaDP cuedp = new CuentaDP();
