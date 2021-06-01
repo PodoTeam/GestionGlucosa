@@ -20,7 +20,6 @@ public class Hba1cDP {
 
     String codigo;
     Date fechaCalculo;
-    String momentoMedicion;
     float valor;
 
     Hba1cMD hba1cMD = new Hba1cMD();
@@ -28,9 +27,8 @@ public class Hba1cDP {
     public Hba1cDP() {
     }
 
-    public Hba1cDP(String codigo, String momentoMedicion, Date fechaGlucosa, float valor) {
+    public Hba1cDP(String codigo, Date fechaGlucosa, float valor) {
         this.codigo = codigo;
-        this.momentoMedicion = momentoMedicion;
         this.fechaCalculo = fechaGlucosa;
         this.valor = valor;
 
@@ -42,10 +40,6 @@ public class Hba1cDP {
 
     public String setCodigo() {
         return codigo;
-    }
-
-    public void setMomentoMedicion(String momentoMedicion) {
-        this.momentoMedicion = momentoMedicion;
     }
 
     public void setFechaGlucosa(Date fechaGlucosa) {
@@ -63,25 +57,22 @@ public class Hba1cDP {
     public float getValor() {
         return valor;
     }
-     public String getMomentoMedicion() {
-        return momentoMedicion;
-    }
 
-    public boolean modificarDP(int conAzucar, String id) throws IOException, SQLException {
+    public boolean modificarDP(int conAzucar) throws IOException, SQLException {
         valor = (conAzucar + 46.7f) / 28.7f;
-        return hba1cMD.modificarHba1c(codigo, id, fechaCalculo, valor);
+        return hba1cMD.modificarHba1c(codigo, fechaCalculo, valor);
     }
 
-    public boolean eliminarDP(String id) throws IOException, SQLException {
-        return hba1cMD.eliminarHba1c(codigo, id);
+    public boolean eliminarDP() throws IOException, SQLException {
+        return hba1cMD.eliminarHba1c(codigo);
     }
 
-    public boolean guardarDP(int conAzucar, String ID_PAC) throws IOException, SQLException {
+    public boolean guardarDP(int conAzucar) throws IOException, SQLException {
         valor = (conAzucar + 46.7f) / 28.7f;
-        return hba1cMD.insertarHba1c(codigo, ID_PAC, momentoMedicion, fechaCalculo, valor);
+        return hba1cMD.insertarHba1c(codigo, fechaCalculo, valor);
     }
 
-    public ArrayList<Hba1cDP> consultarDP(String ID_PAC) throws IOException, SQLException {
-        return hba1cMD.consultarHba1c(ID_PAC);
+    public ArrayList<Hba1cDP> consultarDP() throws IOException, SQLException {
+        return hba1cMD.consultarHba1c();
     }
 }

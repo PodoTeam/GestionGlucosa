@@ -152,33 +152,26 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         String momento = jTextField2.getText();
         int azucar = Integer.parseInt(jTextField3.getText());
         String observ = jTextField4.getText();
-        boolean aux;
 
-        if (!jDateChooser1.getDate().equals(null) && !jTextField2.getText().equals("") && !jTextField3.getText().equals("") && !jTextField4.getText().equals("")) {
-            glucosa.setCodigoGlucosa(fecha + "" + momento);
-            glucosa.setCodigoHb(fecha + "" + momento);
+        if (!jDateChooser1.equals("") && !jTextField2.equals("") && !jTextField3.equals("") && !jTextField4.equals("")) {
+            glucosa.setCodigoGlucosa(fecha+""+momento);
+            glucosa.setCodigoHb(fecha+""+momento);
             glucosa.setFechaGlucosa(fecha);
             glucosa.setMomentoMedicion(momento);
             glucosa.setConcentracionAzucar(azucar);
             glucosa.setComentario(observ);
 
             try {
-                aux = glucosa.guardarDP(id);
-                if (aux) {
-                    JOptionPane.showMessageDialog(this, "Ingreso de medición de glucosa exitoso");
-                    jDateChooser1.setDate(null);
-                    jTextField2.setText("");
-                    jTextField3.setText("");
-                    jTextField4.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(this, "Error en los datos ingresados");
-                }
+                glucosa.guardarDP(id);
+                JOptionPane.showMessageDialog(this, "Ingreso de medición de glucosa exitoso");
+                jDateChooser1.setDate(null);
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
             } catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Error en los datos ingresados");
-
+                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, "Error medicion ya registrada");
-
+                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

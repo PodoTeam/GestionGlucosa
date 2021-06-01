@@ -5,7 +5,15 @@
  */
 package GUI;
 
+import glucosabajocontrol.AlimentoDP;
+import glucosabajocontrol.PacienteDP;
+import glucosabajocontrol.RecoAlimenticiaDP;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import java.util.Date;
+
 
 /**
  *
@@ -16,10 +24,16 @@ public class AlimentosJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form AlimentosJInternalFrame
      */
-    
-    public AlimentosJInternalFrame() {
+    static String user;
+    ArrayList<AlimentoDP> resultado;
+    public AlimentosJInternalFrame(String user) throws IOException, SQLException {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        this.user = user;
+        // primer paso 
+        // Obtener peso, edad, estatura del paciente
+       llenar();
+      
+        
     }
 
     /**
@@ -94,4 +108,52 @@ public class AlimentosJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    
+    private ArrayList<AlimentoDP> ubicacion(int edad, double estatura, double peso) throws IOException, SQLException {
+        ArrayList<AlimentoDP> resultado = new ArrayList<>();
+        double ims = 0.0, estatura_metros = 0.0;
+        estatura_metros = estatura * 0.01;
+        ims = peso / Math.pow(estatura_metros, 2);
+        //Ims indice de masa corpoal
+        AlimentoDP ali = new AlimentoDP();
+        resultado = ali.getAlimentos(peso, ims);
+        return  resultado;
+         
+    }
+
+    private void llenar() throws IOException, SQLException {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        PacienteDP pa = new PacienteDP(user);
+        pa = pa.consultarPaciente();
+        int edad = pa.getEdad();
+        double estatura = pa.getAltura();
+        double peso = pa.getPeso();
+        Object datos[] = new Object[3];
+        // Obtener ubicacion
+        resultado = ubicacion(edad,estatura,peso);
+        
+        Date fecha = new Date();
+        
+        System.out.println(fecha);
+        for (int i = 0; i < resultado.size(); i++) {
+            datos[0] = resultado.get(i).getNombreAlimento();
+            datos[1] = resultado.get(i).getGrasaAlimento();
+            datos[2] =resultado.get(i).getAzucarAlimento();
+            //registrarRecomendacion(user,resultado.get(i).getNombreAlimento()
+            //,);
+            modelo.addRow(datos);
+        }
+        jTable1.setModel(modelo);
+         
+    }
+
+    private void registrarRecomendacion(String user,String Nombre,Date fecha ) {
+        //RecoAlimenticiaDP reco = new RecoAlimenticiaDP(user,Nombre,fecha);
+        //reco.Guardar();
+    }
+ 
+           
+                
+    
 }

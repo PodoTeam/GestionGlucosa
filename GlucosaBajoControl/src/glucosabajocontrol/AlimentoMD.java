@@ -25,11 +25,11 @@ public class AlimentoMD {
     String cadena;
     String raiz = System.getProperty("user.dir");
 
-    public ArrayList<AlimentoDP> consultarRecomendacion(float GRASA_ALIM) throws IOException, SQLException {
+    public ArrayList<AlimentoDP> consultarRecomendacion(float GRASA_ALIM, String signo) throws IOException, SQLException {
 
         ArrayList<AlimentoDP> resultado = new ArrayList<>();
         
-        final String cadena = "SELECT * FROM PACIENTE WHERE GRASA_ALIM = ?";
+        final String cadena = "SELECT * FROM ALIMENTOS WHERE GRASA_ALIM "+signo+" ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -40,13 +40,14 @@ public class AlimentoMD {
 
         preparedStatement = con.prepareStatement(cadena);
         preparedStatement.setFloat(1, GRASA_ALIM);
-        ResultSet resultSet = preparedStatement.executeQuery();
+        result = preparedStatement.executeQuery();
 
-        while(resultSet.next())
+        while(result.next())
         {
-            String nom = resultSet.getString(1);
-            Float azuc = resultSet.getFloat(3);
-            resultado.add(new AlimentoDP(nom, GRASA_ALIM, azuc));            
+            String nom = result.getString(1);
+            double grasa = result.getDouble(2);
+            Float azuc = result.getFloat(3);
+            resultado.add(new AlimentoDP(nom, grasa, azuc));            
         }
 
         preparedStatement.close();

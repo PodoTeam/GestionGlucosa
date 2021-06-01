@@ -5,6 +5,10 @@
  */
 package glucosabajocontrol;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 /**
  *
  * @author bryan
@@ -27,6 +31,8 @@ public class AlimentoDP {
         this.grasaAlimento = grasaAlimento;
         this.azucarAlimento = azucarAlimento;
     }
+     public AlimentoDP()
+     {}
     public float getPeso() {
         return Paciente.getPeso();
     }
@@ -57,6 +63,26 @@ public class AlimentoDP {
 
     public void setAzucarAlimento(float azucarAlimento) {
         this.azucarAlimento = azucarAlimento;
+    }  
+     public ArrayList<AlimentoDP> getAlimentos(double  peso, double ims) throws IOException, SQLException {
+        ArrayList<AlimentoDP> arr = new ArrayList<AlimentoDP>();
+        AlimentoMD alimd = new AlimentoMD();
+        if (ims < 16)
+        {
+            //persona con falta de peso
+            // 100 personas flacas   
+            arr = alimd.consultarRecomendacion(100,">");
+        }
+        else if (ims >= 27)
+        { 
+            // menor a 100 personas gordas
+            // persona con sobre peso
+            arr = alimd.consultarRecomendacion(100,"<");
+            
+        }
+        return arr;
+        
     }
+    
 
 }
