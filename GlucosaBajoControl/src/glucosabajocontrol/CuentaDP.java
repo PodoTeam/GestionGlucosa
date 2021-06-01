@@ -51,7 +51,12 @@ public class CuentaDP {
     public void grabar(){
         
     }
-    public void eliminar(){
-        
+    public boolean eliminarcon() throws IOException, SQLException{
+        CuentaMD cuemd = new CuentaMD();
+        return cuemd.eliminarCuenta(clave);
+    }
+    public boolean modificarcon() throws IOException, SQLException{
+        CuentaMD cuemd = new CuentaMD();
+        return cuemd.modificarCuenta(clave, usuario);
     }
 }

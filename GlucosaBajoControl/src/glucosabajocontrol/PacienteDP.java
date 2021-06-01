@@ -101,11 +101,13 @@ public class PacienteDP {
        PacienteDP pad = pamd.consultarPaciente(this.clave);
        return pad;
     }
-    public void modificar(){
-        
+    public boolean modificar() throws IOException, SQLException{
+       PacienteMD paci = new PacienteMD();
+       return paci.modificarPaciente(cedula, nombre, apellido, edad, altura, peso, tipoSanguineo, tipoDiabetes, clave);
     }
-    public void eliminar(){
-        
+    public boolean eliminar() throws IOException, SQLException{
+       PacienteMD paci = new PacienteMD();
+       return paci.eliminarPaciente(cedula);
     }
     public boolean agregar() throws IOException, SQLException{
         
