@@ -10,6 +10,7 @@ import glucosabajocontrol.PacienteDP;
 import glucosabajocontrol.RecoAlimenticiaDP;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
@@ -134,13 +135,18 @@ public class AlimentosJInternalFrame extends javax.swing.JInternalFrame {
         // Obtener ubicacion
         resultado = ubicacion(edad,estatura,peso);
         Date fecha = new Date();
-        System.out.println(fecha);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        String formattedDate = simpleDateFormat.format(fecha);
+
+        java.sql.Date date1 = java.sql.Date.valueOf(formattedDate);
+        System.out.println(date1);
         for (int i = 0; i < resultado.size(); i++) {
             datos[0] = resultado.get(i).getNombreAlimento();
             datos[1] = resultado.get(i).getGrasaAlimento();
             datos[2] =resultado.get(i).getAzucarAlimento();
             if(!registrarRecomendacion(user,resultado.get(i).getNombreAlimento()
-            ,fecha))
+            ,date1))
             {
                 JOptionPane.showMessageDialog(null, "Fallo en registrar la recomendacion alimenticia");
             }

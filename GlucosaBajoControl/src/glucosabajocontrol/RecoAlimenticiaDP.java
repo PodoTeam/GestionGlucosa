@@ -22,7 +22,7 @@ public class RecoAlimenticiaDP {
     public RecoAlimenticiaDP(String Paciente, String alimento, Date fechaReco)
     {
         this.Paciente = Paciente;
-        this.Alimento = Alimento;
+        this.Alimento = alimento;
         this.fechaReco = fechaReco;
         
     }
@@ -35,6 +35,7 @@ public class RecoAlimenticiaDP {
     {
         boolean var = false;
         RecoAlimenticiaMD reco = new RecoAlimenticiaMD();
+        System.out.println(Paciente + " " + Alimento + " " + fechaReco);
         var = reco.insertarRecomendacion(Paciente,Alimento,fechaReco);
         return var;
     }
