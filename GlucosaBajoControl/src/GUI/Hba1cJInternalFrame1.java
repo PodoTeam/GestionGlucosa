@@ -6,6 +6,7 @@
 package GUI;
 
 import glucosabajocontrol.GlucosaDP;
+import glucosabajocontrol.Hba1cDP;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
@@ -23,7 +24,7 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
     /**
      * Creates new form GlucosaJInternalFrame
      */
-    glucosabajocontrol.GlucosaDP glucosa = new GlucosaDP();
+    Hba1cDP hb = new Hba1cDP();
     String id = "";
 
     public Hba1cJInternalFrame1(String id) {
@@ -44,7 +45,6 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setClosable(true);
@@ -60,14 +60,14 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Fecha Medicion", "Momento Medición", "HbA1C"
+                "Fecha Medicion", "Momento Medición", "HbA1C", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -84,27 +84,15 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,28 +102,14 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                .addGap(70, 70, 70))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        try {
-            modificarDatos();
-        } catch (IOException ex) {
-            Logger.getLogger(Hba1cJInternalFrame1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Hba1cJInternalFrame1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
@@ -150,39 +124,18 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
 
         try {
             //consulta de trabajadores en el grupo
-            glucosas = glucosa.consultarDP(id);
-            if (glucosas.size() > 0) {
-                for (GlucosaDP medicion : glucosas) {
-                    model.insertRow(model.getRowCount(), new Object[]{medicion.getFechaGlucosa(), medicion.getMomentoMedicion(), medicion.getConcentracionAzucar(), medicion.getComentario(), true});
+            hbs = hb.consultarDP(id);
+            if (hbs.size() > 0) {
+                for (Hba1cDP medicion : hbs) {
+                    model.insertRow(model.getRowCount(), new Object[]{medicion.getFechaGlucosa(), medicion.getMomentoMedicion(), medicion.getValor(), true});
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "No existen Mediciones de glucosa");
+                JOptionPane.showMessageDialog(this, "No existen el calculo de HBA1C");
             }
         } catch (SQLException ex) {
             Logger.getLogger(Hba1cJInternalFrame1.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Hba1cJInternalFrame1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void modificarDatos() throws IOException, SQLException {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-
-        for (int i = 0; i < model.getRowCount(); i++) {
-            if (model.getValueAt(i, 4).equals(true)) {
-                glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
-                glucosa.setFechaGlucosa((java.sql.Date) model.getValueAt(i, 0));
-                glucosa.setMomentoMedicion(model.getValueAt(i, 1).toString());
-                glucosa.setConcentracionAzucar((int) model.getValueAt(i, 2));
-                glucosa.setComentario(model.getValueAt(i, 3).toString());
-                glucosa.modificarDP();
-                cargarDatos();
-
-            } else {
-                glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
-                glucosa.eliminarDP();
-                cargarDatos();
-            }
         }
     }
 }

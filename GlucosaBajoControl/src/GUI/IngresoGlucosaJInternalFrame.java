@@ -154,7 +154,7 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         String observ = jTextField4.getText();
         boolean aux;
 
-        if (!jDateChooser1.equals("") && !jTextField2.equals("") && !jTextField3.equals("") && !jTextField4.equals("")) {
+        if (!jDateChooser1.getDate().equals(null) && !jTextField2.getText().equals("") && !jTextField3.getText().equals("") && !jTextField4.getText().equals("")) {
             glucosa.setCodigoGlucosa(fecha + "" + momento);
             glucosa.setCodigoHb(fecha + "" + momento);
             glucosa.setFechaGlucosa(fecha);
@@ -174,9 +174,11 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(this, "Error en los datos ingresados");
                 }
             } catch (IOException ex) {
-                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Error en los datos ingresados");
+
             } catch (SQLException ex) {
-                Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Error medicion ya registrada");
+
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
