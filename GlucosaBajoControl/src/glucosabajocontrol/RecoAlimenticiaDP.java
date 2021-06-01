@@ -6,7 +6,9 @@
 
 package glucosabajocontrol;
 
+import java.io.IOException;
 import java.sql.Date;
+import java.sql.SQLException;
 /**
  *
  * @author W10USER
@@ -29,9 +31,12 @@ public class RecoAlimenticiaDP {
     {
         
     }
-    public void Guardar()
+    public boolean Guardar() throws IOException, SQLException
     {
-        
+        boolean var = false;
+        RecoAlimenticiaMD reco = new RecoAlimenticiaMD();
+        var = reco.insertarRecomendacion(Paciente,Alimento,fechaReco);
+        return var;
     }
 
     

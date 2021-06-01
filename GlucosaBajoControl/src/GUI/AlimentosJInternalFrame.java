@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -132,25 +133,29 @@ public class AlimentosJInternalFrame extends javax.swing.JInternalFrame {
         Object datos[] = new Object[3];
         // Obtener ubicacion
         resultado = ubicacion(edad,estatura,peso);
-        
         Date fecha = new Date();
-        
         System.out.println(fecha);
         for (int i = 0; i < resultado.size(); i++) {
             datos[0] = resultado.get(i).getNombreAlimento();
             datos[1] = resultado.get(i).getGrasaAlimento();
             datos[2] =resultado.get(i).getAzucarAlimento();
-            //registrarRecomendacion(user,resultado.get(i).getNombreAlimento()
-            //,);
+            if(!registrarRecomendacion(user,resultado.get(i).getNombreAlimento()
+            ,fecha))
+            {
+                JOptionPane.showMessageDialog(null, "Fallo en registrar la recomendacion alimenticia");
+            }
+            
             modelo.addRow(datos);
         }
         jTable1.setModel(modelo);
          
     }
 
-    private void registrarRecomendacion(String user,String Nombre,Date fecha ) {
-        //RecoAlimenticiaDP reco = new RecoAlimenticiaDP(user,Nombre,fecha);
-        //reco.Guardar();
+    private boolean registrarRecomendacion(String user,String Nombre,Date fecha ) throws IOException, SQLException {
+        boolean var;
+        RecoAlimenticiaDP reco = new RecoAlimenticiaDP(user,Nombre, (java.sql.Date) fecha);
+        var = reco.Guardar();
+        return  var;
     }
  
            
