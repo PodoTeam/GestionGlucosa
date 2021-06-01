@@ -6,6 +6,7 @@
 package GUI;
 
 import glucosabajocontrol.CuentaDP;
+import glucosabajocontrol.PacienteDP;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -21,10 +22,10 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
      * Creates new form MenuPrincipalJFrame
      */
     static String user;
-    
+
     public MenuPrincipalJFrame(String user) {
         this.setTitle("Menu Principal");
-        this.user =user;
+        this.user = user;
         this.setLocationRelativeTo(null);
         initComponents();
     }
@@ -214,7 +215,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         AlimentosJInternalFrame ali = new AlimentosJInternalFrame();
         jDesktopPane2.add(ali);
-        ali.setVisible(true);   
+        ali.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -251,18 +252,23 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         pa.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
- Updated upstream
+
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
-        //CuentaDP cuedp = new CuentaDP();
-        //try{
-            //cuedp.eliminarcon();
-        //}catch (IOException ex){
-            //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        //}catch (SQLException ex){
-            //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        //}
-       
+        CuentaDP cuedp = new CuentaDP();
+        PacienteDP pa = new PacienteDP();
+
+        try { 
+            pa.eliminar(user);
+            LoginJFrame vp = new LoginJFrame();
+            this.setVisible(false);
+            vp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -270,7 +276,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         jDesktopPane2.add(hb);
         hb.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
 
     /**
      * @param args the command line arguments
