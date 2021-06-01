@@ -80,8 +80,10 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
@@ -178,14 +180,13 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
                 glucosa.setMomentoMedicion(model.getValueAt(i, 1).toString());
                 glucosa.setConcentracionAzucar((int) model.getValueAt(i, 2));
                 glucosa.setComentario(model.getValueAt(i, 3).toString());
-                glucosa.modificarDP();
-                cargarDatos();
-
+                glucosa.modificarDP(id);
             } else {
                 glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
-                glucosa.eliminarDP();
-                cargarDatos();
+                glucosa.eliminarDP(id);
             }
         }
+        cargarDatos();
+
     }
 }
