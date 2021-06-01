@@ -17,6 +17,11 @@ public class CuentaDP {
     String usuario;
     String clave;
     
+     public CuentaDP()
+    {
+        
+    }
+     
     public CuentaDP(String usuario, String clave)
     {
         this.usuario = usuario;
@@ -51,9 +56,9 @@ public class CuentaDP {
     public void grabar(){
         
     }
-    public boolean eliminarcon() throws IOException, SQLException{
+    public boolean eliminarcon(String user) throws IOException, SQLException{
         CuentaMD cuemd = new CuentaMD();
-        return cuemd.eliminarCuenta(clave);
+        return cuemd.eliminarCuenta(user);
     }
     public boolean modificarcon() throws IOException, SQLException{
         CuentaMD cuemd = new CuentaMD();

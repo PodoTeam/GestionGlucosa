@@ -37,6 +37,11 @@ public class PacienteDP {
         this.tipoDiabetes = tipoDiabetes;
         this.clave = clave;
     }
+    
+    public PacienteDP()
+    {
+        
+    }
 
     public PacienteDP(String user) {
         this.clave = user;
@@ -105,9 +110,9 @@ public class PacienteDP {
        PacienteMD paci = new PacienteMD();
        return paci.modificarPaciente(cedula, nombre, apellido, edad, altura, peso, tipoSanguineo, tipoDiabetes, clave);
     }
-    public boolean eliminar() throws IOException, SQLException{
+    public boolean eliminar(String user) throws IOException, SQLException{
        PacienteMD paci = new PacienteMD();
-       return paci.eliminarPaciente(cedula);
+       return paci.eliminarPaciente(user);
     }
     public boolean agregar() throws IOException, SQLException{
         
