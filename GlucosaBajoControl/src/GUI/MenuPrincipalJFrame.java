@@ -6,19 +6,10 @@
 package GUI;
 
 import glucosabajocontrol.CuentaDP;
-import glucosabajocontrol.GlucosaDP;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -30,10 +21,10 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
      * Creates new form MenuPrincipalJFrame
      */
     static String user;
-
+    
     public MenuPrincipalJFrame(String user) {
         this.setTitle("Menu Principal");
-        this.user = user;
+        this.user =user;
         this.setLocationRelativeTo(null);
         initComponents();
     }
@@ -235,7 +226,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
             Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         jDesktopPane2.add(ali);
-        ali.setVisible(true);
+        ali.setVisible(true);   
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -276,13 +267,13 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         //CuentaDP cuedp = new CuentaDP();
         //try{
-        //cuedp.eliminarcon();
+            //cuedp.eliminarcon();
         //}catch (IOException ex){
-        //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
         //}catch (SQLException ex){
-        //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
         //}
-
+       
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -293,17 +284,11 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-            /* PatronGlucosaJInternalFrame pg = new PatronGlucosaJInternalFrame(user);
-            jDesktopPane2.add(pg);
-            pg.setVisible(true);*/
-        try {
-            graficar();
-        } catch (IOException ex) {
-            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        PatronGlucosaJInternalFrame pg = new PatronGlucosaJInternalFrame(user);
+        jDesktopPane2.add(pg);
+        pg.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -360,32 +345,4 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
-
-    public void graficar() throws IOException, SQLException {
-        
-        ArrayList<GlucosaDP> mediciones = new ArrayList<>();
-        GlucosaDP glucosa = new GlucosaDP();
-            XYSeries series = new XYSeries("Glucosa(gl/m)");
-        
-        mediciones = glucosa.consultarDP(user);
-        
-        int i = 1;
-        for(GlucosaDP medicion : mediciones)
-        {
-            series.add(i, medicion.getConcentracionAzucar());
-            i++;
-        }
-        
-        XYSeriesCollection DataSet = new XYSeriesCollection();
-        DataSet.addSeries(series);
-        
-        JFreeChart Chart = ChartFactory.createXYLineChart("Patrón de Glucosa", "DIAS", "gl/m", DataSet, PlotOrientation.VERTICAL, true , false, false);
-        //ChartPanel panel = new ChartPanel(Chart);
-        //grafico.setLayout(new java.awt.BorderLayout());
-        //grafico.add(panel);
-        //grafico.validate();
-        ChartFrame frame = new ChartFrame("Patrón de Glucosa", Chart);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }
