@@ -58,23 +58,18 @@ public class Hba1cDP {
         return valor;
     }
 
-    public void modificarDP() {
-
-    }
-
-    public void eliminarDP() {
-
-    }
-
-    public void guardarDP(int conAzucar) {
+    public boolean modificarDP(int conAzucar) throws IOException, SQLException {
         valor = (conAzucar + 46.7f) / 28.7f;
-        try {
-            hba1cMD.insertarHba1c(codigo, fechaCalculo, valor);
-        } catch (IOException ex) {
-            Logger.getLogger(Hba1cDP.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Hba1cDP.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        return hba1cMD.modificarHba1c(codigo, fechaCalculo, valor);
+    }
+
+    public boolean eliminarDP() throws IOException, SQLException {
+        return hba1cMD.eliminarHba1c(codigo);
+    }
+
+    public boolean guardarDP(int conAzucar) throws IOException, SQLException {
+        valor = (conAzucar + 46.7f) / 28.7f;
+        return hba1cMD.insertarHba1c(codigo, fechaCalculo, valor);
     }
 
     public ArrayList<Hba1cDP> consultarDP() throws IOException, SQLException {
