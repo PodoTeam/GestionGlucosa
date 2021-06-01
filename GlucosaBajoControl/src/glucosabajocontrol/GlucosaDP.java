@@ -117,16 +117,18 @@ public class GlucosaDP {
     }
 
     public boolean eliminarDP() throws IOException, SQLException {
+        boolean aux = glucosaMD.eliminarGlucosa(codigoGlucosa);
         hba1c.setCodigo(codigoGlucosa);
         hba1c.eliminarDP();
-        return glucosaMD.eliminarGlucosa(codigoGlucosa);
+        return aux;
     }
 
     public boolean modificarDP() throws IOException, SQLException {
+        boolean aux = glucosaMD.modificarGlucosa(codigoGlucosa, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
         hba1c.setCodigo(codigoGlucosa);
         hba1c.setFechaGlucosa(fechaGlucosa);
         hba1c.modificarDP(concentracionAzucar);
-        return glucosaMD.modificarGlucosa(codigoGlucosa, fechaGlucosa, momentoMedicion, concentracionAzucar, comentario);
+        return aux;
     }
 
 }
