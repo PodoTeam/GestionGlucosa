@@ -127,7 +127,13 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-
+        try {
+            modificarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -166,17 +172,19 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
         for (int i = 0; i < model.getRowCount(); i++) {
-            if (model.getValueAt(i, 5).equals(true)) {
-                glucosa.setCodigoGlucosa(model.getValueAt(i, 1) + "" + model.getValueAt(i, 2));
-                glucosa.setFechaGlucosa((java.sql.Date) model.getValueAt(i, 1));
-                glucosa.setMomentoMedicion(model.getValueAt(i, 2).toString());
-                glucosa.setConcentracionAzucar((int) model.getValueAt(i, 3));
-                glucosa.setComentario(model.getValueAt(i, 4).toString());
+            if (model.getValueAt(i, 4).equals(true)) {
+                glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
+                glucosa.setFechaGlucosa((java.sql.Date) model.getValueAt(i, 0));
+                glucosa.setMomentoMedicion(model.getValueAt(i, 1).toString());
+                glucosa.setConcentracionAzucar((int) model.getValueAt(i, 2));
+                glucosa.setComentario(model.getValueAt(i, 3).toString());
                 glucosa.modificarDP();
+                cargarDatos();
+
             } else {
-                System.out.println("borrar");
-                glucosa.setCodigoGlucosa(model.getValueAt(i, 1) + "" + model.getValueAt(i, 2));
+                glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
                 glucosa.eliminarDP();
+                cargarDatos();
             }
         }
     }
