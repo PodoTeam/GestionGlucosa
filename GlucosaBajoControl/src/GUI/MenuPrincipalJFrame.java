@@ -150,6 +150,11 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         jMenu7.add(jMenuItem8);
 
         jMenuItem1.setText("HbA1C");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu7.add(jMenuItem1);
 
         jMenuBar1.add(jMenu7);
@@ -246,6 +251,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         pa.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+ Updated upstream
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
         //CuentaDP cuedp = new CuentaDP();
@@ -258,6 +264,13 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         //}
        
     }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Hba1cJInternalFrame1 hb = new Hba1cJInternalFrame1(user);
+        jDesktopPane2.add(hb);
+        hb.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
 
     /**
      * @param args the command line arguments
