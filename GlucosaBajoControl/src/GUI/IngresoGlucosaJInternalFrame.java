@@ -154,8 +154,8 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         String observ = jTextField4.getText();
 
         if (!jDateChooser1.equals("") && !jTextField2.equals("") && !jTextField3.equals("") && !jTextField4.equals("")) {
-            glucosa.setCodigoGlucosa(fecha.getDate()+""+momento);
-            glucosa.setCodigoHb(fecha.getDate()+""+momento);
+            glucosa.setCodigoGlucosa(fecha+""+momento);
+            glucosa.setCodigoHb(fecha+""+momento);
             glucosa.setFechaGlucosa(fecha);
             glucosa.setMomentoMedicion(momento);
             glucosa.setConcentracionAzucar(azucar);
