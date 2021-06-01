@@ -12,17 +12,17 @@ package glucosabajocontrol;
 public class AlimentoDP {
 
     String nombreAlimento;
-    float grasaAlimento;
-    float azucarAlimento;
+    double grasaAlimento;
+    double azucarAlimento;
     PacienteDP Paciente;//revisar las inicializaciones de los objetos
     GlucosaDP Glucosa;
 
-    public AlimentoDP(String nombreAlimento, float grasaAlimento, float azucarAlimento) {
+    public AlimentoDP(String nombreAlimento, double grasaAlimento, double azucarAlimento) {
         this.nombreAlimento = nombreAlimento;
         this.grasaAlimento = grasaAlimento;
         this.azucarAlimento = azucarAlimento;
     }
-     public AlimentoDP(String nombreAlimento, float grasaAlimento, float azucarAlimento, PacienteDP Paciente, GlucosaDP Glucosa) {
+     public AlimentoDP(String nombreAlimento, double grasaAlimento, double azucarAlimento, PacienteDP Paciente, GlucosaDP Glucosa) {
         this.nombreAlimento = nombreAlimento;
         this.grasaAlimento = grasaAlimento;
         this.azucarAlimento = azucarAlimento;
@@ -43,7 +43,7 @@ public class AlimentoDP {
         this.nombreAlimento = nombreAlimento;
     }
 
-    public float getGrasaAlimento() {
+    public double getGrasaAlimento() {
         return grasaAlimento;
     }
 
@@ -51,7 +51,7 @@ public class AlimentoDP {
         this.grasaAlimento = grasaAlimento;
     }
 
-    public float getAzucarAlimento() {
+    public double getAzucarAlimento() {
         return azucarAlimento;
     }
 

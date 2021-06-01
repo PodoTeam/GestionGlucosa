@@ -8,6 +8,7 @@ package GUI;
 import glucosabajocontrol.PacienteDP;
 import java.io.IOException;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
