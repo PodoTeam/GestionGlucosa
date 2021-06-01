@@ -152,22 +152,27 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         String momento = jTextField2.getText();
         int azucar = Integer.parseInt(jTextField3.getText());
         String observ = jTextField4.getText();
+        boolean aux;
 
         if (!jDateChooser1.equals("") && !jTextField2.equals("") && !jTextField3.equals("") && !jTextField4.equals("")) {
-            glucosa.setCodigoGlucosa(fecha+""+momento);
-            glucosa.setCodigoHb(fecha+""+momento);
+            glucosa.setCodigoGlucosa(fecha + "" + momento);
+            glucosa.setCodigoHb(fecha + "" + momento);
             glucosa.setFechaGlucosa(fecha);
             glucosa.setMomentoMedicion(momento);
             glucosa.setConcentracionAzucar(azucar);
             glucosa.setComentario(observ);
 
             try {
-                glucosa.guardarDP(id);
-                JOptionPane.showMessageDialog(this, "Ingreso de medición de glucosa exitoso");
-                jDateChooser1.setDate(null);
-                jTextField2.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
+                aux = glucosa.guardarDP(id);
+                if (aux) {
+                    JOptionPane.showMessageDialog(this, "Ingreso de medición de glucosa exitoso");
+                    jDateChooser1.setDate(null);
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error en los datos ingresados");
+                }
             } catch (IOException ex) {
                 Logger.getLogger(IngresoGlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {

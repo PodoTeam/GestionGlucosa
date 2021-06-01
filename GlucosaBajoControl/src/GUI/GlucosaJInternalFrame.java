@@ -178,12 +178,12 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
                 glucosa.setMomentoMedicion(model.getValueAt(i, 1).toString());
                 glucosa.setConcentracionAzucar((int) model.getValueAt(i, 2));
                 glucosa.setComentario(model.getValueAt(i, 3).toString());
-                glucosa.modificarDP();
+                glucosa.modificarDP(id);
                 cargarDatos();
 
             } else {
                 glucosa.setCodigoGlucosa(model.getValueAt(i, 0) + "" + model.getValueAt(i, 1));
-                glucosa.eliminarDP();
+                glucosa.eliminarDP(id);
                 cargarDatos();
             }
         }
