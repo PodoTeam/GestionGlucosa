@@ -20,6 +20,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
      * Creates new form MenuPrincipalJFrame
      */
     static String user;
+    
     public MenuPrincipalJFrame(String user) {
         this.setTitle("Menu Principal");
         this.user =user;
@@ -200,7 +201,9 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
+        AlimentosJInternalFrame ali = new AlimentosJInternalFrame();
+        jDesktopPane2.add(ali);
+        ali.setVisible(true);   
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
