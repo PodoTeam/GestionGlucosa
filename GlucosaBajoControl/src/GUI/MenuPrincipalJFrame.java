@@ -386,6 +386,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         //grafico.validate();
         ChartFrame frame = new ChartFrame("Patrón de Glucosa", Chart);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
