@@ -22,6 +22,11 @@ public class CuentaDP {
         this.usuario = usuario;
         this.clave = clave;
     }
+    public CuentaDP()
+    {
+        
+    }
+
     public void setUsuario(String usuario){
         this.usuario = usuario;
     }
@@ -43,17 +48,15 @@ public class CuentaDP {
     }
     public boolean ingresarcon() throws IOException, SQLException{
         CuentaMD cuemd = new CuentaMD();
-        System.out.println(usuario);
-        System.out.println(clave);
         boolean resultado = cuemd.insertarCuenta(usuario, clave);
         return resultado;
     }
     public void grabar(){
         
     }
-    public boolean eliminarcon() throws IOException, SQLException{
+    public boolean eliminarcon(String user) throws IOException, SQLException{
         CuentaMD cuemd = new CuentaMD();
-        return cuemd.eliminarCuenta(clave);
+        return cuemd.eliminarCuenta(user);
     }
     public boolean modificarcon() throws IOException, SQLException{
         CuentaMD cuemd = new CuentaMD();

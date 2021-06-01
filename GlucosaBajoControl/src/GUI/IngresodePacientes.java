@@ -94,6 +94,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_nombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_nombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_nombreFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -103,6 +108,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_apellido.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_apellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_apellidoFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -154,6 +164,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
         txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_tiposanguineo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_tiposanguineoFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -185,6 +200,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel10.setText("Clave:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
+        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPasswordField1FocusLost(evt);
+            }
+        });
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -311,6 +331,26 @@ public class IngresodePacientes extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txt_tipodiabetesFocusLost
 
+    private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
+        // TODO add your handling code here:
+        txt_nombre.setText("");
+    }//GEN-LAST:event_txt_nombreFocusLost
+
+    private void txt_tiposanguineoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tiposanguineoFocusLost
+        // TODO add your handling code here:
+        txt_tiposanguineo.setText("");
+    }//GEN-LAST:event_txt_tiposanguineoFocusLost
+
+    private void txt_apellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusLost
+        // TODO add your handling code here:
+        txt_apellido.setText("");
+    }//GEN-LAST:event_txt_apellidoFocusLost
+
+    private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
+        // TODO add your handling code here:
+        jPasswordField1.setText("");
+    }//GEN-LAST:event_jPasswordField1FocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -390,7 +430,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         
         if("".equals(cedula) && "".equals(nombre) && "".equals(apellido) && "".equals(edad) && "".equals(altura) && "".equals(peso) && "".equals(tipoSanguineo) && "".equals(tipoDiabetes) && "".equals(clave))
         {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");
+            JOptionPane.showMessageDialog(null, "Por favor ingrese sus datos");;
         }
         else if("".equals(cedula)){
             JOptionPane.showMessageDialog(null, "Por favor ingrese su Cédula");
