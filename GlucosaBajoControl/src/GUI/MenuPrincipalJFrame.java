@@ -7,6 +7,7 @@ package GUI;
 
 import glucosabajocontrol.CuentaDP;
 import glucosabajocontrol.GlucosaDP;
+import glucosabajocontrol.PacienteDP;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -274,14 +275,19 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
-        //CuentaDP cuedp = new CuentaDP();
-        //try{
-        //cuedp.eliminarcon();
-        //}catch (IOException ex){
-        //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        //}catch (SQLException ex){
-        //Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+        CuentaDP cuedp = new CuentaDP();
+        PacienteDP pa = new PacienteDP();
+
+        try { 
+            pa.eliminar(user);
+            LoginJFrame vp = new LoginJFrame();
+            this.setVisible(false);
+            vp.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPrincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
@@ -386,6 +392,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         //grafico.validate();
         ChartFrame frame = new ChartFrame("Patrón de Glucosa", Chart);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }
