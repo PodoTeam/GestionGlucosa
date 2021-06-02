@@ -68,15 +68,15 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("DialogInput", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingreso de Pacientes");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cédula:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         txt_cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_cedula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -87,28 +87,38 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         txt_nombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_nombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_nombreFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellido:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
         txt_apellido.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_apellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_apellidoFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Edad:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         txt_edad.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_edad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -119,10 +129,10 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Altura:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_altura.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -133,10 +143,10 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Peso:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
         txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_peso.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -147,19 +157,24 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("TipoSanguineo:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txt_tiposanguineo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txt_tiposanguineoFocusLost(evt);
+            }
+        });
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("TipoDiabetes:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
         txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -180,11 +195,16 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Clave:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
+        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPasswordField1FocusLost(evt);
+            }
+        });
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -310,6 +330,26 @@ public class IngresodePacientes extends javax.swing.JDialog {
             txt_tipodiabetes.setText("");
         }
     }//GEN-LAST:event_txt_tipodiabetesFocusLost
+
+    private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
+        // TODO add your handling code here:
+        txt_nombre.setText("");
+    }//GEN-LAST:event_txt_nombreFocusLost
+
+    private void txt_apellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusLost
+        // TODO add your handling code here:
+        txt_apellido.setText("");
+    }//GEN-LAST:event_txt_apellidoFocusLost
+
+    private void txt_tiposanguineoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tiposanguineoFocusLost
+        // TODO add your handling code here:
+        txt_tiposanguineo.setText("");
+    }//GEN-LAST:event_txt_tiposanguineoFocusLost
+
+    private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
+        // TODO add your handling code here:
+        jPasswordField1.setText("");
+    }//GEN-LAST:event_jPasswordField1FocusLost
 
     /**
      * @param args the command line arguments

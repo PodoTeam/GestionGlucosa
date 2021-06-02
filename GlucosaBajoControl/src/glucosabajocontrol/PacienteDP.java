@@ -7,6 +7,7 @@ package glucosabajocontrol;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import org.hsqldb.Tokens;
 
 /**
  *
@@ -106,13 +107,15 @@ public class PacienteDP {
        PacienteDP pad = pamd.consultarPaciente(this.clave);
        return pad;
     }
-    public boolean modificar() throws IOException, SQLException{
+    public boolean modificar(String cedula, String nombre, String apellido, int edad, float altura, float peso, String tipoSanguineo, int tipoDiabetes, String clave) throws IOException, SQLException{
        PacienteMD paci = new PacienteMD();
-       return paci.modificarPaciente(cedula, nombre, apellido, edad, altura, peso, tipoSanguineo, tipoDiabetes, clave);
+       boolean aux = paci.modificarPaciente(cedula, nombre, apellido, edad, altura, peso, tipoSanguineo, tipoDiabetes, clave);
+       return aux;
     }
-    public boolean eliminar(String user) throws IOException, SQLException{
+    public boolean eliminar(String cedula) throws IOException, SQLException{
        PacienteMD paci = new PacienteMD();
-       return paci.eliminarPaciente(user);
+       boolean aux = paci.eliminarPaciente(cedula);
+       return aux;
     }
     public boolean agregar() throws IOException, SQLException{
         
