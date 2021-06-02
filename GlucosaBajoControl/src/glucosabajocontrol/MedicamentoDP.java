@@ -64,5 +64,12 @@ public class MedicamentoDP {
         return result;
     }
     
+    public boolean  modificar(String nombre, float dosis,String indicaciones,Boolean estado ) throws IOException, SQLException{
+        
+        MedicamentoMD memd = new MedicamentoMD();
+        boolean result = memd.modificarMedicamento(nombre, dosis, indicaciones, estado);
+        return result;
+    }
+    
 }
       

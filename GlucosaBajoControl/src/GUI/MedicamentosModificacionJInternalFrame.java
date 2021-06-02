@@ -10,6 +10,10 @@ import glucosabajocontrol.MedicamentoDP;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,8 +28,10 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
 
     ArrayList<MedicamentoDP> medica = new ArrayList<MedicamentoDP>();
     static String user;
+     DefaultTableModel modelo;
     public MedicamentosModificacionJInternalFrame(String user) throws IOException, SQLException {
         initComponents();
+         modelo = (DefaultTableModel) jTable1.getModel();
         this.user = user;
         cargar(this.user);
     }
@@ -42,6 +48,7 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 102));
         setClosable(true);
@@ -60,7 +67,7 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
                 java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false, true
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -69,6 +76,11 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -83,6 +95,13 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setText("Medicamentos...");
 
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,6 +113,10 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(286, 286, 286)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,22 +124,76 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jButton1)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    float dosis;
+    Boolean estado;
+    int fila;
+    int columna;
+    ArrayList<Integer> rows = new ArrayList<Integer>();
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        fila = jTable1.rowAtPoint(evt.getPoint());
+        columna = jTable1.columnAtPoint(evt.getPoint());
+        if(columna == 1 || columna == 3)
+        {
+            // LISTA
+            rows.add(fila);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        for (int i = 0; i < rows.size(); i++) {
+            // Obtener los datos que se van a modificar.
+            String nombre = (String) jTable1.getValueAt(rows.get(i), 0);
+            float dosis = (float) jTable1.getValueAt(rows.get(i), 1);
+            String indicaciones = (String) jTable1.getValueAt(rows.get(i), 2);
+            Boolean estado = (Boolean) jTable1.getValueAt(rows.get(i), 3);
+            MedicamentoDP me = new MedicamentoDP();
+            try {
+                boolean result = me.modificar(nombre, dosis, indicaciones, estado);
+                if(!result)
+                {JOptionPane.showMessageDialog(null, "Error en la modificaion");}
+                
+            } catch (IOException ex) {
+                Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            int a = jTable1.getRowCount();
+            for (int j = a; j != 0; j--) {
+                modelo.removeRow(modelo.getRowCount()-1);
+            }
+            try {
+                cargar(user);
+            } catch (IOException ex) {
+                Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }        
+        }
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
     private void cargar(String user) throws IOException, SQLException {
-        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         Object datos[] = new Object[4];
         MedicamentoDP me = new MedicamentoDP();
         medica = me.cargarMedicamentos(user);
@@ -124,8 +201,12 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
             datos[0] = medica.get(i).getNombre();
             datos[1] = medica.get(i).getDosis();
             datos[2] = medica.get(i).getIndicaciones();
-            datos[3] = medica.get(i).getEstado();
-            modelo.addRow(datos);
+            if(medica.get(i).getEstado())
+            {
+                datos[3] = medica.get(i).getEstado();
+                modelo.addRow(datos);
+            }
+            
         }
         jTable1.setModel(modelo);
     }

@@ -92,11 +92,11 @@ public class MedicamentoMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(4, NOM_MEDI);
+
         preparedStatement.setFloat(1, DOSIS_MEDI);
         preparedStatement.setString(2, INDICA_MEDI);
         preparedStatement.setBoolean(3, ESTADO_MEDI);
-
+        preparedStatement.setString(4, NOM_MEDI);
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();
         return resultado;
