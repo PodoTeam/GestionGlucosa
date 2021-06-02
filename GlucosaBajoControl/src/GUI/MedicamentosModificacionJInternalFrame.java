@@ -142,24 +142,29 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
         // TODO add your handling code here:
         fila = jTable1.rowAtPoint(evt.getPoint());
         columna = jTable1.columnAtPoint(evt.getPoint());
-        if(columna == 1 || columna == 3)
+        if(columna == 1 || columna == 3 | columna ==2)
         {
             // LISTA
-            rows.add(fila);
+            rows.add(fila);       
         }
+        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        for (int i = 0; i < rows.size(); i++) {
+        int i;
+        for (i = 0; i < rows.size(); i++) {
             // Obtener los datos que se van a modificar.
             String nombre = (String) jTable1.getValueAt(rows.get(i), 0);
             float dosis = (float) jTable1.getValueAt(rows.get(i), 1);
             String indicaciones = (String) jTable1.getValueAt(rows.get(i), 2);
             Boolean estado = (Boolean) jTable1.getValueAt(rows.get(i), 3);
             MedicamentoDP me = new MedicamentoDP();
-            try {
+
+                System.out.println(estado);
+                System.out.println(dosis);
+            
+             try {
                 boolean result = me.modificar(nombre, dosis, indicaciones, estado);
                 if(!result)
                 {JOptionPane.showMessageDialog(null, "Error en la modificaion");}
@@ -169,18 +174,24 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
             } catch (SQLException ex) {
                 Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
+                  
+        }
+        if(i == rows.size())
+        {
             int a = jTable1.getRowCount();
+            System.out.println(a);
             for (int j = a; j != 0; j--) {
-                modelo.removeRow(modelo.getRowCount()-1);
-            }
+                modelo.removeRow(0);
+            } 
             try {
                 cargar(user);
             } catch (IOException ex) {
                 Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(MedicamentosModificacionJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }        
+            }
         }
+        
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
