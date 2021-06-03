@@ -46,13 +46,13 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(0, 102, 153));
         setClosable(true);
         setIconifiable(true);
         setTitle("Datos glucosa");
 
         jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Glucosa...");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -87,6 +87,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
+        jButton1.setFont(new java.awt.Font("High Tower Text", 0, 14)); // NOI18N
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +119,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))

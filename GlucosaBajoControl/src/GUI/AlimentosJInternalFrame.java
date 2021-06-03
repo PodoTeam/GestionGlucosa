@@ -50,7 +50,7 @@ public class AlimentosJInternalFrame extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(0, 102, 153));
         setClosable(true);
         setIconifiable(true);
         setTitle("Recomendacion de alimentos");

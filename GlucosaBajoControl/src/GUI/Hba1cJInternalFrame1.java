@@ -47,13 +47,13 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(0, 102, 153));
         setClosable(true);
         setIconifiable(true);
         setTitle("Datos glucosa");
 
-        jLabel4.setFont(new java.awt.Font("Ebrima", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("HbA1C");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,7 +103,7 @@ public class Hba1cJInternalFrame1 extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel4)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addGap(48, 48, 48))
         );
 

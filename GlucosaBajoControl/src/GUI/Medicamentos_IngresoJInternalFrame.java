@@ -50,13 +50,13 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
         setIconifiable(true);
         setTitle("Ingreso Medicamentos");
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
-        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese la dosis");
 
-        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ingrese las indicaciones");
 
@@ -70,11 +70,11 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Por favor ingrese los datos solicitados...");
 
-        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese el nombre del medicamento");
 
@@ -103,7 +103,7 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
                                     .addComponent(jLabel1)
                                     .addGap(21, 21, 21)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(109, 109, 109))))
         );

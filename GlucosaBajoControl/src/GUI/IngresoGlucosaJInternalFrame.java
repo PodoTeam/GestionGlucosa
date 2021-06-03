@@ -50,29 +50,29 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
-        setBackground(new java.awt.Color(0, 102, 102));
+        setBackground(new java.awt.Color(0, 102, 153));
         setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setTitle("Ingreso Glucosa");
 
         jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Por favor ingrese los datos solicitados...");
 
-        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese la fecha de su ultima medición");
 
-        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese la concentración de azucar");
 
-        jLabel5.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Ingrese una observación");
 
-        jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Momento medición");
 
@@ -110,7 +110,7 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
@@ -139,7 +139,7 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();

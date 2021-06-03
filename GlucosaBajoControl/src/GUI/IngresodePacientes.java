@@ -68,7 +68,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DialogInput", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingreso de Pacientes");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
