@@ -107,9 +107,9 @@ public class PacienteDP {
        PacienteDP pad = pamd.consultarPaciente(this.clave);
        return pad;
     }
-    public boolean modificar(String cedula, String nombre, String apellido, int edad, float altura, float peso, String tipoSanguineo, int tipoDiabetes, String clave) throws IOException, SQLException{
+    public boolean modificarPaciente(String cedula, int edad, float altura, float peso) throws IOException, SQLException{
        PacienteMD paci = new PacienteMD();
-       boolean aux = paci.modificarPaciente(cedula, nombre, apellido, edad, altura, peso, tipoSanguineo, tipoDiabetes, clave);
+       boolean aux = paci.modificarPaciente(cedula, edad, altura, peso);
        return aux;
     }
     public boolean eliminar(String cedula) throws IOException, SQLException{

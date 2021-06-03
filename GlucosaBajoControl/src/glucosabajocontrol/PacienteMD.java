@@ -95,9 +95,9 @@ public class PacienteMD {
         return new PacienteDP(ID_PAC, nom, apel, edad, altura, peso, tipoSan, tipoDiab, clave);
     }
 
-    public boolean modificarPaciente(String ID_PAC, String NOM_PAC, String APEL_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC, String TIPOSAN_PAC, int TIPODIAB_PAC, String CLA_PAC) throws IOException, SQLException {
+    public boolean modificarPaciente(String ID_PAC, int EDAD_PAC, float ALTURA_PAC, float PESO_PAC) throws IOException, SQLException {
 
-        final String cadena = "UPDATE PACIENTE SET NOM_PAC = ?, APEL_PAC = ?, EDAD_PAC = ?, ALTURA_PAC = ?, PESO_PAC = ?, TIPOSAN_PAC = ?, TIPODIAB_PAC = ?, CLA_PAC = ?, WHERE ID_PAC = ?";
+        final String cadena = "UPDATE PACIENTE SET EDAD_PAC = ?, ALTURA_PAC = ?, PESO_PAC = ? WHERE ID_PAC = ?";
 
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -107,15 +107,10 @@ public class PacienteMD {
         }
 
         preparedStatement = con.prepareStatement(cadena);
-        preparedStatement.setString(9, ID_PAC);
-        preparedStatement.setString(1, NOM_PAC);
-        preparedStatement.setString(2, APEL_PAC);
-        preparedStatement.setInt(3, EDAD_PAC);
-        preparedStatement.setFloat(4, ALTURA_PAC);
-        preparedStatement.setFloat(5, PESO_PAC);
-        preparedStatement.setString(6, TIPOSAN_PAC);
-        preparedStatement.setInt(7, TIPODIAB_PAC);
-        preparedStatement.setString(8, CLA_PAC);
+        preparedStatement.setString(4, ID_PAC);
+        preparedStatement.setInt(1, EDAD_PAC);
+        preparedStatement.setFloat(2, ALTURA_PAC);
+        preparedStatement.setFloat(3, PESO_PAC);
 
         boolean resultado = preparedStatement.executeUpdate() == 1 ? true : false;
         preparedStatement.close();

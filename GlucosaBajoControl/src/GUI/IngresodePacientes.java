@@ -10,6 +10,8 @@ import glucosabajocontrol.PacienteDP;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -334,22 +336,42 @@ public class IngresodePacientes extends javax.swing.JDialog {
 
     private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
         // TODO add your handling code here:
-        txt_nombre.setText("");
+        try{
+            String nombre = txt_cedula.getText();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese solo letras");
+            txt_nombre.setText("");
+        }
     }//GEN-LAST:event_txt_nombreFocusLost
 
     private void txt_apellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusLost
         // TODO add your handling code here:
-        txt_apellido.setText("");
+        try{
+            String apellido = txt_apellido.getText();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese solo letras");
+            txt_apellido.setText("");
+        }
     }//GEN-LAST:event_txt_apellidoFocusLost
 
     private void txt_tiposanguineoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tiposanguineoFocusLost
         // TODO add your handling code here:
-        txt_tiposanguineo.setText("");
+        try{
+            String tipoSanguineo = txt_tiposanguineo.getText();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingreso solo letras y simbolos");
+            txt_tiposanguineo.setText("");         
+        }
     }//GEN-LAST:event_txt_tiposanguineoFocusLost
 
     private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
         // TODO add your handling code here:
-        jPasswordField1.setText("");
+        try{
+            String clave = jPasswordField1.getText();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Datos no permitidos");
+            jPasswordField1.setText("");
+        }
     }//GEN-LAST:event_jPasswordField1FocusLost
 
     /**
