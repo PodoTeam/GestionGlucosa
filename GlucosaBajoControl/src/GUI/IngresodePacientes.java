@@ -68,12 +68,12 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingreso de Pacientes");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
@@ -87,7 +87,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
 
-        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
@@ -101,7 +101,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
 
-        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellido:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
@@ -115,7 +115,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
 
-        jLabel5.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Edad:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
@@ -129,7 +129,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
 
-        jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Altura:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
@@ -143,7 +143,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
-        jLabel7.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Peso:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
@@ -157,7 +157,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
 
-        jLabel8.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("TipoSanguineo:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
@@ -171,7 +171,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
 
-        jLabel9.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("TipoDiabetes:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
@@ -186,6 +186,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +196,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Clave:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));

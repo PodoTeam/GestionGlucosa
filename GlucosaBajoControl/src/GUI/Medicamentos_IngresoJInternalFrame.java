@@ -52,16 +52,16 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
-        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingrese la dosis");
 
-        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Ingrese las indicaciones");
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("High Tower Text", 1, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -70,11 +70,11 @@ public class Medicamentos_IngresoJInternalFrame extends javax.swing.JInternalFra
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Por favor ingrese los datos solicitados...");
 
-        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ingrese el nombre del medicamento");
 

@@ -70,47 +70,49 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setTitle("Mis datos");
 
-        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Mis datos...");
 
-        jLabel1.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nombre");
 
-        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Apellido");
 
-        jLabel3.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Edad");
 
-        jLabel5.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Altura");
 
-        jLabel6.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Peso");
 
-        jLabel8.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Tipo de sangre");
 
-        jLabel9.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de Diabetes");
 
-        jLabel10.setFont(new java.awt.Font("High Tower Text", 1, 15)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Cedula");
 
         jTextField1.setEditable(false);
+        jTextField1.setEnabled(false);
 
         jTextField2.setEditable(false);
 
         jTextField3.setEditable(false);
+        jTextField3.setEnabled(false);
 
         jTextField4.setEditable(false);
 
@@ -122,8 +124,10 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         });
 
         jTextField6.setEditable(false);
+        jTextField6.setEnabled(false);
 
         jTextField7.setEditable(false);
+        jTextField7.setEnabled(false);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
@@ -131,8 +135,9 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         });
 
         jTextField9.setEditable(false);
+        jTextField9.setEnabled(false);
 
-        jButton1.setFont(new java.awt.Font("High Tower Text", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -171,7 +176,7 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(324, Short.MAX_VALUE))
+                        .addContainerGap(325, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -231,7 +236,7 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jLabel10)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,15 +252,7 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String nombre = (String) jTextField1.getText();
-        String apellido = (String) jTextField3.getText();
-        String edad = (String) jTextField2.getText();
-        String altura = (String) jTextField4.getText();
-        String peso = (String) jTextField5.getText();
-        String tipoSanguineo = (String) jTextField9.getText();
-        String tipoDiabetes = (String) jTextField6.getText();
-        String cedula = (String) jTextField7.getText();
-        PacienteDP pa = new PacienteDP();
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

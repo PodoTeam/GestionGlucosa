@@ -91,11 +91,11 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jLabel4.setFont(new java.awt.Font("High Tower Text", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Medicamentos...");
 
-        jButton1.setFont(new java.awt.Font("High Tower Text", 0, 14)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setText("Modificar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,7 +132,7 @@ public class MedicamentosModificacionJInternalFrame extends javax.swing.JInterna
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jButton1)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
