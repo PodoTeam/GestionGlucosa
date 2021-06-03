@@ -109,29 +109,23 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         jLabel10.setText("Cedula");
 
         jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField1.setBackground(new java.awt.Color(18, 30, 49));
         jTextField1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setEnabled(false);
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(0, 0, 0));
         jTextField2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField3.setBackground(new java.awt.Color(18, 30, 49));
         jTextField3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setEnabled(false);
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(0, 0, 0));
         jTextField4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(0, 0, 0));
         jTextField5.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
@@ -139,13 +133,15 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         });
 
         jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField6.setBackground(new java.awt.Color(18, 30, 49));
         jTextField6.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setEnabled(false);
 
         jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField7.setBackground(new java.awt.Color(18, 30, 49));
         jTextField7.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
         jTextField7.setEnabled(false);
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,8 +150,9 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
         });
 
         jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(0, 0, 0));
+        jTextField9.setBackground(new java.awt.Color(18, 30, 49));
         jTextField9.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(255, 255, 255));
         jTextField9.setEnabled(false);
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -290,15 +287,7 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
            Logger.getLogger(InfoPacienteJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
        }catch (SQLException ex){
            Logger.getLogger(InfoPacienteJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       try {
-           cargardat(user);
-       } catch (IOException ex) {
-            Logger.getLogger(InfoPacienteJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(InfoPacienteJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+       }  
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -322,11 +311,5 @@ public class InfoPacienteJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
-    public void cargardat(String user) throws IOException, SQLException{
-        PacienteDP pa = new PacienteDP(user);
-        pa = pa.consultarPaciente();
-        jTextField2.setText(String.valueOf(pa.getEdad()));
-        jTextField4.setText(String.valueOf(pa.getAltura()));
-        jTextField5.setText(String.valueOf(pa.getPeso()));
-    }
+
 }

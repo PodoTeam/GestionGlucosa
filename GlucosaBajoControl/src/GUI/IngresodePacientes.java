@@ -80,11 +80,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel2.setText("Cédula:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
-        txt_cedula.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_cedula.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_cedula.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_cedula.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_cedulaFocusLost(evt);
+        txt_cedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_cedulaKeyTyped(evt);
             }
         });
         jPanel1.add(txt_cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 210, -1));
@@ -94,11 +94,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel3.setText("Nombre:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
-        txt_nombre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_nombre.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_nombre.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_nombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_nombreFocusLost(evt);
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombreKeyTyped(evt);
             }
         });
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 210, -1));
@@ -108,11 +108,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel4.setText("Apellido:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, -1, -1));
 
-        txt_apellido.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_apellido.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_apellido.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_apellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_apellidoFocusLost(evt);
+        txt_apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_apellidoKeyTyped(evt);
             }
         });
         jPanel1.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 210, -1));
@@ -122,11 +122,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel5.setText("Edad:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
-        txt_edad.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_edad.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_edad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_edad.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_edadFocusLost(evt);
+        txt_edad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_edadKeyTyped(evt);
             }
         });
         jPanel1.add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 210, -1));
@@ -136,11 +136,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel6.setText("Altura:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
-        txt_altura.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_altura.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_altura.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_altura.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_alturaFocusLost(evt);
+        txt_altura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_alturaKeyTyped(evt);
             }
         });
         jPanel1.add(txt_altura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
@@ -150,11 +150,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel7.setText("Peso:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
-        txt_peso.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_peso.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_peso.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_peso.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_pesoFocusLost(evt);
+        txt_peso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_pesoKeyTyped(evt);
             }
         });
         jPanel1.add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 210, -1));
@@ -164,11 +164,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel8.setText("TipoSanguineo:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
-        txt_tiposanguineo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_tiposanguineo.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_tiposanguineo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_tiposanguineo.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_tiposanguineoFocusLost(evt);
+        txt_tiposanguineo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tiposanguineoKeyTyped(evt);
             }
         });
         jPanel1.add(txt_tiposanguineo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 210, -1));
@@ -178,11 +178,11 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel9.setText("TipoDiabetes:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
 
-        txt_tipodiabetes.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        txt_tipodiabetes.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         txt_tipodiabetes.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txt_tipodiabetes.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txt_tipodiabetesFocusLost(evt);
+        txt_tipodiabetes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_tipodiabetesKeyTyped(evt);
             }
         });
         jPanel1.add(txt_tipodiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 210, -1));
@@ -203,11 +203,7 @@ public class IngresodePacientes extends javax.swing.JDialog {
         jLabel10.setText("Clave:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        jPasswordField1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jPasswordField1FocusLost(evt);
-            }
-        });
+        jPasswordField1.setFont(new java.awt.Font("DialogInput", 0, 12)); // NOI18N
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -284,95 +280,53 @@ public class IngresodePacientes extends javax.swing.JDialog {
         Verificacion();
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
-    private void txt_cedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_cedulaFocusLost
+    private void txt_cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cedulaKeyTyped
         // TODO add your handling code here:
-        try{
-            Integer.parseInt(txt_cedula.getText());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
-            txt_cedula.setText("");
-        }
-    }//GEN-LAST:event_txt_cedulaFocusLost
+        char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_txt_cedulaKeyTyped
 
-    private void txt_edadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_edadFocusLost
+    private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
         // TODO add your handling code here:
-        try{
-            Integer.parseInt(txt_edad.getText());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
-            txt_edad.setText("");
-        }
-    }//GEN-LAST:event_txt_edadFocusLost
+        char c = evt.getKeyChar();
+        if((c < 'a' || c > 'z') && (c < 'A' )| c > 'Z') evt.consume();
+    }//GEN-LAST:event_txt_nombreKeyTyped
 
-    private void txt_alturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_alturaFocusLost
+    private void txt_apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apellidoKeyTyped
         // TODO add your handling code here:
-        try{
-            Float.parseFloat(txt_altura.getText());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
-            txt_altura.setText("");
-        }
-    }//GEN-LAST:event_txt_alturaFocusLost
+        char c = evt.getKeyChar();
+        if((c < 'a' || c > 'z') && (c < 'A' )| c > 'Z') evt.consume();
+    }//GEN-LAST:event_txt_apellidoKeyTyped
 
-    private void txt_pesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_pesoFocusLost
+    private void txt_edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_edadKeyTyped
         // TODO add your handling code here:
-        try{
-            Float.parseFloat(txt_peso.getText());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
-            txt_peso.setText("");
-        }
-    }//GEN-LAST:event_txt_pesoFocusLost
+        char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume();
+    }//GEN-LAST:event_txt_edadKeyTyped
 
-    private void txt_tipodiabetesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tipodiabetesFocusLost
+    private void txt_alturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_alturaKeyTyped
         // TODO add your handling code here:
-        try{
-            Integer.parseInt(txt_tipodiabetes.getText());
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese un valor numérico");
-            txt_tipodiabetes.setText("");
-        }
-    }//GEN-LAST:event_txt_tipodiabetesFocusLost
+        char c = evt.getKeyChar();
+        if((c < '0' || c > '9') && (c != '.')) evt.consume(); 
+    }//GEN-LAST:event_txt_alturaKeyTyped
 
-    private void txt_nombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_nombreFocusLost
+    private void txt_pesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pesoKeyTyped
         // TODO add your handling code here:
-        try{
-            String nombre = txt_cedula.getText();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese solo letras");
-            txt_nombre.setText("");
-        }
-    }//GEN-LAST:event_txt_nombreFocusLost
+        char c = evt.getKeyChar();
+        if((c < '0' || c > '9') && (c != '.')) evt.consume();
+    }//GEN-LAST:event_txt_pesoKeyTyped
 
-    private void txt_apellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_apellidoFocusLost
+    private void txt_tiposanguineoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tiposanguineoKeyTyped
         // TODO add your handling code here:
-        try{
-            String apellido = txt_apellido.getText();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingrese solo letras");
-            txt_apellido.setText("");
-        }
-    }//GEN-LAST:event_txt_apellidoFocusLost
+        char c = evt.getKeyChar();
+        if((c < 'a' || c > 'z') && (c < 'A' )| c > 'Z' && (c != '+') && (c != '-')) evt.consume();
+    }//GEN-LAST:event_txt_tiposanguineoKeyTyped
 
-    private void txt_tiposanguineoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_tiposanguineoFocusLost
+    private void txt_tipodiabetesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tipodiabetesKeyTyped
         // TODO add your handling code here:
-        try{
-            String tipoSanguineo = txt_tiposanguineo.getText();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos, ingreso solo letras y simbolos");
-            txt_tiposanguineo.setText("");         
-        }
-    }//GEN-LAST:event_txt_tiposanguineoFocusLost
-
-    private void jPasswordField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField1FocusLost
-        // TODO add your handling code here:
-        try{
-            String clave = jPasswordField1.getText();
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Datos no permitidos");
-            jPasswordField1.setText("");
-        }
-    }//GEN-LAST:event_jPasswordField1FocusLost
+        char c = evt.getKeyChar();
+        if(c < '0' || c > '9') evt.consume(); 
+    }//GEN-LAST:event_txt_tipodiabetesKeyTyped
 
     /**
      * @param args the command line arguments
