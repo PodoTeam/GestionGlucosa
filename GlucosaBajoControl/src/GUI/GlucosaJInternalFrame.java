@@ -132,6 +132,7 @@ public class GlucosaJInternalFrame extends javax.swing.JInternalFrame {
 
         try {
             modificarDatos();
+            JOptionPane.showMessageDialog(this, "Las mediciones se actualizaron de manera correcta");
         } catch (IOException ex) {
             Logger.getLogger(GlucosaJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {

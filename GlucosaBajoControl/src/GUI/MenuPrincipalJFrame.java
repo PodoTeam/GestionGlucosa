@@ -69,7 +69,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPane2.setBackground(new java.awt.Color(0, 102, 153));
+        jDesktopPane2.setBackground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);

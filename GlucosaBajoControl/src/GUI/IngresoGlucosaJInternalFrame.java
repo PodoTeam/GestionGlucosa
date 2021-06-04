@@ -149,9 +149,9 @@ public class IngresoGlucosaJInternalFrame extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         Date fecha = new java.sql.Date(jDateChooser1.getDate().getTime());
-        String momento = jTextField2.getText();
-        int azucar = Integer.parseInt(jTextField3.getText());
-        String observ = jTextField4.getText();
+        String momento = jTextField2.getText().trim().toLowerCase();
+        int azucar = Integer.parseInt(jTextField3.getText().trim());
+        String observ = jTextField4.getText().trim().toLowerCase();
         boolean aux;
 
         if (!jDateChooser1.getDate().equals(null) && !jTextField2.getText().equals("") && !jTextField3.getText().equals("") && !jTextField4.getText().equals("")) {
